@@ -7,7 +7,7 @@ const ImageUploder = () => {
   };
   return (
     <div className="flex flex-wrap gap-4 mx-auto justify-center p-4">
-      <div className="flex bg-[#e5e5e5]  shadow-2xl mt-4  h-52  items-center gap-4 p-2">
+      <div className="flex bg-base-100  shadow-2xl mt-4  h-52  items-center gap-4 p-2">
         <div className="mt-18">
           <p>Upload Prescript</p>
           <button className="btn btn-accent mt-2">Upload</button>
@@ -16,7 +16,7 @@ const ImageUploder = () => {
           <img src={image1} alt="" />
         </div>
       </div>
-      <div className="flex bg-[#e5e5e5]  shadow-2xl mt-4  h-52 items-center gap-4 p-2">
+      <div className="flex bg-base-100  shadow-2xl mt-4  h-52 items-center gap-4 p-2">
         <div className="mt-18">
           <p>Healthcare Product</p>
           <button className="btn btn-accent mt-2">Order Now</button>
@@ -25,7 +25,7 @@ const ImageUploder = () => {
           <img style={productImageStyle} src={productImage} alt="product" />
         </div>
       </div>
-      <div className="flex bg-[#e5e5e5]  shadow-2xl mt-4 h-52 items-center gap-4 p-2">
+      <div className="flex bg-base-100  shadow-2xl mt-4 h-52 items-center gap-4 p-2">
         <div className="mt-18">
           <p>Help Line</p>
           <button className="btn btn-accent mt-2">Call Now</button>
