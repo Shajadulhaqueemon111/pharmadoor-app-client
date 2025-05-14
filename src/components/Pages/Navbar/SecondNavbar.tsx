@@ -44,9 +44,6 @@ const SecondNavbar = () => {
                   <option className="font-bold" value="seclo">
                     Seclo
                   </option>
-                  <option className="font-bold" value="fexo">
-                    Fexo
-                  </option>
                 </select>
               </li>
               <li>
@@ -85,9 +82,6 @@ const SecondNavbar = () => {
                   <option className="font-bold" value="thermometer">
                     Thermometer
                   </option>
-                  <option className="font-bold" value="penlight">
-                    Penlight
-                  </option>
                 </select>
               </li>
               <li>
@@ -120,9 +114,6 @@ const SecondNavbar = () => {
                 </option>
                 <option className="font-bold" value="seclo">
                   Seclo
-                </option>
-                <option className="font-bold" value="fexo">
-                  Fexo
                 </option>
               </select>
             </li>
@@ -163,9 +154,6 @@ const SecondNavbar = () => {
                 </option>
                 <option className="font-bold" value="thermometer">
                   Thermometer
-                </option>
-                <option className="font-bold" value="penlight">
-                  Penlight
                 </option>
               </select>
             </li>

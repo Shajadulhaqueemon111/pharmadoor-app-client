@@ -1,68 +1,63 @@
-import { Search, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import image1 from "../../../assets/Image2.png";
 import image2 from "../../../assets/Image (1).png";
 import { FcBusinessman } from "react-icons/fc";
 import SecondNavbar from "./SecondNavbar";
+import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
+
 const FirstNavbar = () => {
   return (
-    <div>
-      <div className="flex  justify-evenly items-center bg-cyan-200 p-4">
-        {/* pharmadoor text stylling */}
-        <div>
-          <p className="flex items-center font-bold text-2xl text-[#469498]">
-            PharmaD{" "}
-            <span>
-              <img src={image1} alt="image" />
-            </span>{" "}
-            <span>
-              <img src={image1} alt="image" />
-            </span>{" "}
-            r
-          </p>
+    <div className="shadow-sm w-full sticky top-0 z-50 bg-cyan-200">
+      {/* Top Navbar */}
+      <div className="flex items-center justify-between flex-wrap px-4 py-3 gap-4">
+        {/* Logo (md up) */}
+        <Link to="/">
+          <div className="hidden md:flex items-center font-bold text-xl md:text-2xl text-[#469498] whitespace-nowrap mr-4">
+            PharmaD
+            <img src={image1} alt="logo" className="w-5 h-5 mx-1" />
+            <img src={image1} alt="logo" className="w-5 h-5 mx-1" />r
+          </div>
+        </Link>
+
+        {/* SearchBar (center but flexible on all screens) */}
+        <div className="flex-1 flex justify-center">
+          <div className="w-full max-w-md">
+            <SearchBar />
+          </div>
         </div>
-        {/* searchbar  */}
-        <div className="flex items-center border border-b-zinc-300 rounded-md overflow-hidden w-full max-w-md">
-          {/* Search Icon */}
-          <div className="px-3 text-gray-500">
-            <Search size={20} />
+
+        {/* Right side: Cart, Register, Profile */}
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Your Order (desktop only) */}
+          <div className="hidden md:flex items-center">
+            <img src={image2} alt="delivery" className="w-6 h-6 mr-1" />
+            <p className="text-sm">Your Order</p>
           </div>
 
-          {/* Input Field */}
-          <input
-            type="text"
-            placeholder="Find Your Medicine..."
-            className="flex-1 p-3 outline-none"
-          />
+          {/* Cart */}
+          <li className="relative list-none">
+            <Link to={"/cart"} className="inline-block p-1">
+              <ShoppingCart className="text-[#469498]" size={22} />
+            </Link>
+            <span className="absolute top-[-6px] left-[18px] bg-white text-black text-center w-[18px] h-[18px] flex items-center justify-center text-xs rounded-full">
+              0
+            </span>
+          </li>
 
-          {/* Search Button */}
-          <button className="bg-[#00B8A2] hover:bg-amber-600 text-white px-4 py-2">
-            Search
+          {/* Register (sm up) */}
+          <button className="btn btn-success btn-sm hidden sm:inline-block text-xs">
+            Register
           </button>
-        </div>
-        {/* delivary Image */}
-        <div>
-          <div className="flex items-center">
-            <img src={image2} alt="" />
-            <p>Your Order</p>
-          </div>
-        </div>
-        <div>
-          <div className="flex items-center gap-2">
-            <ShoppingCart className="text-[#00B8A2]" /> <p>cart</p>
-          </div>
-        </div>
-        |
-        <div className="flex items-center gap-3">
-          {/* Register Button */}
-          <button className="btn btn-success">Register</button>
 
-          {/* Profile Avatar */}
-          <div className="w-10 h-10 rounded-full border-2 border-gray-300 overflow-hidden flex items-center justify-center bg-gray-100">
-            {/* <img src="" alt="Profile" className="w-full h-full object-cover" /> */}
-            <FcBusinessman />
+          {/* Profile */}
+          <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">
+            <FcBusinessman size={18} />
           </div>
         </div>
       </div>
+
+      {/* Bottom Navbar (SecondNavbar) */}
       <div>
         <SecondNavbar />
       </div>
