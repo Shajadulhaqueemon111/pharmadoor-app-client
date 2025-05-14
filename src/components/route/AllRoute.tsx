@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainRoute from "./MainRoute";
 import ErrorPage from "../Pages/Error/Error";
 import HomePage from "../Pages/Home/Home";
+import NapaMedicines from "../Pages/Medicines/Napa";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/medicines/napa",
+        element: <NapaMedicines />,
       },
     ],
   },
