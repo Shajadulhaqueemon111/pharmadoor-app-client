@@ -7,6 +7,7 @@ import {
   Youtube,
 } from "lucide-react";
 import Image1 from "../../../assets/heart.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -74,21 +75,32 @@ const Footer = () => {
         <div>
           <h2 className="text-xl font-semibold mb-2">Resources</h2>
           <ul className="space-y-1 text-sm">
-            <li>
-              <a href="/">Buy Medicines Online</a>
-            </li>
-            <li>
-              <a href="/">Top 10 Pharmaceutical</a>
-            </li>
-            <li>
-              <a href="/">Contact Us</a>
-            </li>
-            <li>
-              <a href="/">Blogs</a>
-            </li>
-            <li>
-              <a href="/">FAQ</a>
-            </li>
+            <Link to="/">
+              {" "}
+              <li>
+                <a>Buy Medicines Online</a>
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                <a>Top 10 Pharmaceutical</a>
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                <a>Contact Us</a>
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                <a>Blogs</a>
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                <a>FAQ</a>
+              </li>
+            </Link>
           </ul>
         </div>
         {/* Part 4 - Resources */}
@@ -97,18 +109,27 @@ const Footer = () => {
             Orline Drug License: DC-22813
           </h2>
           <ul className="space-y-1 text-sm">
-            <li>
-              <a href="/">DBID License:384191730</a>
-            </li>
-            <li>
-              <a href="/">
-                Trode Licerso <br />
-                TRAD/DNCC/048628/2022
-              </a>
-            </li>
-            <li>
-              <a href="/">Model Pharmacy License: DC-21000</a>
-            </li>
+            <Link to="/">
+              {" "}
+              <li>
+                <a>DBID License:384191730</a>
+              </li>
+            </Link>
+            <Link to="/">
+              {" "}
+              <li>
+                <a>
+                  Trode Licerso <br />
+                  TRAD/DNCC/048628/2022
+                </a>
+              </li>
+            </Link>
+
+            <Link to="/">
+              <li>
+                <a>Model Pharmacy License: DC-21000</a>
+              </li>
+            </Link>
           </ul>
           <div>
             <div className="mt-3">

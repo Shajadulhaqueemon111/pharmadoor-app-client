@@ -1,4 +1,8 @@
+import { Link, useNavigate } from "react-router-dom";
+
 const SecondNavbar = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -15,156 +19,142 @@ const SecondNavbar = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth={2}
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
             </div>
+
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </li>
+
               <li>
                 <select
                   className="select select-sm w-full mt-1"
+                  defaultValue=""
                   onChange={(e) => {
                     const value = e.target.value;
-                    if (value) window.location.href = `/medicines/${value}`;
+                    if (value) navigate(`/medicines/${value}`);
                   }}
                 >
-                  <option disabled selected>
+                  <option disabled value="">
                     Medicines
                   </option>
-                  <option className="font-bold" value="napa">
-                    Napa
-                  </option>
-                  <option className="font-bold" value="seclo">
-                    Seclo
-                  </option>
+                  <option value="napa">Napa</option>
+                  <option value="seclo">Seclo</option>
                 </select>
               </li>
+
               <li>
                 <select
                   className="select select-sm w-full mt-1"
+                  defaultValue=""
                   onChange={(e) => {
                     const value = e.target.value;
-                    if (value) window.location.href = `/products/${value}`;
+                    if (value) navigate(`/products/${value}`);
                   }}
                 >
-                  <option disabled selected>
+                  <option disabled value="">
                     Products
                   </option>
-                  <option className="font-bold" value="alatrol">
-                    Alatrol
-                  </option>
-                  <option className="font-bold" value="monas">
-                    Monas
-                  </option>
+                  <option value="alatrol">Alatrol</option>
+                  <option value="monas">Monas</option>
                 </select>
               </li>
+
               <li>
                 <select
                   className="select select-sm w-full mt-1"
+                  defaultValue=""
                   onChange={(e) => {
                     const value = e.target.value;
-                    if (value) window.location.href = `/equipments/${value}`;
+                    if (value) navigate(`/equipments/${value}`);
                   }}
                 >
-                  <option disabled selected>
+                  <option disabled value="">
                     Equipments
                   </option>
-                  <option className="font-bold" value="stethoscope">
-                    Stethoscope
-                  </option>
-                  <option className="font-bold" value="thermometer">
-                    Thermometer
-                  </option>
+                  <option value="stethoscope">Stethoscope</option>
+                  <option value="thermometer">Thermometer</option>
                 </select>
               </li>
+
               <li>
-                <a href="/online-doctor">Online Doctor</a>
+                <Link to="/online-doctor">Online Doctor</Link>
               </li>
             </ul>
           </div>
-          {/* <a className="btn btn-ghost text-xl">MediPoint</a> */}
         </div>
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-3">
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
 
             <li>
               <select
                 className="select select-sm"
+                defaultValue=""
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value) window.location.href = `/medicines/${value}`;
+                  if (value) navigate(`/medicines/${value}`);
                 }}
               >
-                <option disabled selected>
+                <option disabled value="">
                   Medicines
                 </option>
-                <option className="font-bold" value="napa">
-                  Napa
-                </option>
-                <option className="font-bold" value="seclo">
-                  Seclo
-                </option>
+                <option value="napa">Napa</option>
+                <option value="seclo">Seclo</option>
               </select>
             </li>
 
             <li>
               <select
                 className="select select-sm"
+                defaultValue=""
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value) window.location.href = `/products/${value}`;
+                  if (value) navigate(`/products/${value}`);
                 }}
               >
-                <option disabled selected>
+                <option disabled value="">
                   Products
                 </option>
-                <option className="font-bold" value="alatrol">
-                  Alatrol
-                </option>
-                <option className="font-bold" value="monas">
-                  Monas
-                </option>
+                <option value="alatrol">Alatrol</option>
+                <option value="monas">Monas</option>
               </select>
             </li>
 
             <li>
               <select
                 className="select select-sm"
+                defaultValue=""
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value) window.location.href = `/equipments/${value}`;
+                  if (value) navigate(`/equipments/${value}`);
                 }}
               >
-                <option disabled selected>
+                <option disabled value="">
                   Equipments
                 </option>
-                <option className="font-bold" value="stethoscope">
-                  Stethoscope
-                </option>
-                <option className="font-bold" value="thermometer">
-                  Thermometer
-                </option>
+                <option value="stethoscope">Stethoscope</option>
+                <option value="thermometer">Thermometer</option>
               </select>
             </li>
 
             <li>
-              <a href="/online-doctor">Online Doctor</a>
+              <Link to="/online-doctor">Online Doctor</Link>
             </li>
           </ul>
         </div>
 
-        <div className="navbar-end"></div>
+        <div className="navbar-end">{/* Future buttons or search */}</div>
       </div>
     </div>
   );

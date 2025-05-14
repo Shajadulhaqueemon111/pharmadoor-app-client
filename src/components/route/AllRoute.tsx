@@ -8,6 +8,7 @@ import MonusMedicines from "../Pages/Products/Monus";
 import AltrolMedicines from "../Pages/Products/Altrol";
 import StethoscopePage from "../Pages/Equipments/Stethoscope";
 import ThermomiterPage from "../Pages/Equipments/Thermomiter";
+import OnlineDoctors from "../Pages/OnlineDoctor/OnlineDoctors";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/equipments/thermometer",
         element: <ThermomiterPage />,
+      },
+      {
+        path: "/online-doctor",
+        element: <OnlineDoctors />,
       },
     ],
   },
