@@ -4,7 +4,7 @@ const OtcBannerPage = () => {
   return (
     <div>
       <div
-        className="flex items-center justify-evenly mx-auto gap-2 "
+        className="flex flex-wrap items-center justify-evenly mx-auto gap-2 "
         style={{
           backgroundImage: "url('https://i.ibb.co/d09Q7hwr/otcbacground.png')",
         }}

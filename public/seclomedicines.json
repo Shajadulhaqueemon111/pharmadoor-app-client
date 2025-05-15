@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Seclo 20",
+    "generic": "Omeprazole",
+    "strength": "20mg",
+    "form": "Capsule",
+    "manufacturer": "ACI Limited",
+    "uses": ["Acid reflux", "Gastric ulcer"],
+    "price": "$0.18/capsule",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Seclo 40",
+    "generic": "Omeprazole",
+    "strength": "40mg",
+    "form": "Capsule",
+    "manufacturer": "ACI Limited",
+    "uses": ["GERD", "Peptic ulcer"],
+    "price": "$0.25/capsule",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Seclo IV",
+    "generic": "Omeprazole",
+    "strength": "40mg",
+    "form": "Injection",
+    "manufacturer": "ACI Limited",
+    "uses": ["Severe acidity", "Hospital use"],
+    "price": "$1.00/vial",
+    "image": "https://i.ibb.co/kLqXMz8/Seclo-40-Injection.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Seclo MUPS",
+    "generic": "Omeprazole",
+    "strength": "20mg",
+    "form": "Tablet",
+    "manufacturer": "ACI Limited",
+    "uses": ["Acidity", "Heartburn"],
+    "price": "$0.20/tablet",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Seclo Fast",
+    "generic": "Omeprazole",
+    "strength": "10mg",
+    "form": "Dispersible Tablet",
+    "manufacturer": "ACI Limited",
+    "uses": ["Acid indigestion", "Gastritis"],
+    "price": "$0.12/tablet",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Seclo Junior",
+    "generic": "Omeprazole",
+    "strength": "10mg",
+    "form": "Sachet",
+    "manufacturer": "ACI Limited",
+    "uses": ["Pediatric GERD"],
+    "price": "$0.22/sachet",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Seclo DS",
+    "generic": "Omeprazole",
+    "strength": "20mg",
+    "form": "Suspension",
+    "manufacturer": "ACI Limited",
+    "uses": ["Ulcer treatment", "Acid reflux"],
+    "price": "$0.30/bottle",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Seclo Plus",
+    "generic": "Omeprazole + Domperidone",
+    "strength": "20mg + 10mg",
+    "form": "Capsule",
+    "manufacturer": "ACI Limited",
+    "uses": ["Acidity", "Nausea"],
+    "price": "$0.35/capsule",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Seclo DR",
+    "generic": "Omeprazole",
+    "strength": "40mg",
+    "form": "Delayed Release Capsule",
+    "manufacturer": "ACI Limited",
+    "uses": ["GERD", "Stomach ulcers"],
+    "price": "$0.28/capsule",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Seclo Kit",
+    "generic": "Omeprazole + Clarithromycin + Amoxicillin",
+    "strength": "20mg + 500mg + 1000mg",
+    "form": "Kit",
+    "manufacturer": "ACI Limited",
+    "uses": ["H. pylori infection"],
+    "price": "$2.50/kit",
+    "image": "https://i.ibb.co/tM5w2yNJ/Seclo-40-Capsule.jpg"
+  }
+]

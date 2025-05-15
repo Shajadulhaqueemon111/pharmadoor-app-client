@@ -9,6 +9,8 @@ import AltrolMedicines from "../Pages/Products/Altrol";
 import StethoscopePage from "../Pages/Equipments/Stethoscope";
 import ThermomiterPage from "../Pages/Equipments/Thermomiter";
 import OnlineDoctors from "../Pages/OnlineDoctor/OnlineDoctors";
+import NapaDetailsPage from "../Pages/Medicines/NapaDetailsPage";
+import SeclodetailsPage from "../Pages/Medicines/SeclodetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +27,16 @@ const router = createBrowserRouter([
         element: <NapaMedicines />,
       },
       {
+        path: "/medicines/napaDetails/:id",
+        element: <NapaDetailsPage />,
+      },
+      {
         path: "/medicines/seclo",
         element: <SecloMedicines />,
+      },
+      {
+        path: "/medicines/secloDetails/:id",
+        element: <SeclodetailsPage />,
       },
       {
         path: "/products/monas",
