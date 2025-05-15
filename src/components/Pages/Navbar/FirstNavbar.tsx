@@ -45,10 +45,12 @@ const FirstNavbar = () => {
             </span>
           </li>
 
-          {/* Register (sm up) */}
-          <button className="btn btn-success btn-sm hidden sm:inline-block text-xs">
-            Register
-          </button>
+          {/* Login (sm up) */}
+          <Link to="/login">
+            <button className="btn btn-success btn-sm hidden sm:inline-block text-xs">
+              Login
+            </button>
+          </Link>
 
           {/* Profile */}
           <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center bg-gray-100">

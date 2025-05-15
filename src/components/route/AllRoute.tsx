@@ -11,6 +11,8 @@ import ThermomiterPage from "../Pages/Equipments/Thermomiter";
 import OnlineDoctors from "../Pages/OnlineDoctor/OnlineDoctors";
 import NapaDetailsPage from "../Pages/Medicines/NapaDetailsPage";
 import SeclodetailsPage from "../Pages/Medicines/SeclodetailsPage";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/medicines/napa",
         element: <NapaMedicines />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "/medicines/napaDetails/:id",
