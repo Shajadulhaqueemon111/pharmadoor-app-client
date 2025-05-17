@@ -4,11 +4,13 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import OtcBannerPage from "./OtcBannerPage";
+import { Link } from "react-router-dom";
 
 type Medicine = {
   id: number;
   name: string;
   description: string;
+  commonCauses: string;
   image: string;
 };
 
@@ -35,7 +37,7 @@ const OtcMedicine = () => {
         spaceBetween={20}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        // autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
           640: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
@@ -46,18 +48,20 @@ const OtcMedicine = () => {
       >
         {medicines.map((med) => (
           <SwiperSlide key={med.id}>
-            <div className="bg-white rounded-xl shadow-xl p-4 h-80  flex flex-col justify-between">
-              <img
-                style={imazeStyle}
-                src={med.image}
-                alt={med.name}
-                className="text-center mx-auto  object-contain mb-2"
-              />
-              <div>
-                <h2 className="text-lg font-semibold">{med.name}</h2>
-                <p className="text-sm text-gray-600">{med.description}</p>
+            <Link to={`otcimedicineDetails/${med.name}`}>
+              <div className="bg-white rounded-xl shadow-xl p-4 h-80  flex flex-col justify-between">
+                <img
+                  style={imazeStyle}
+                  src={med.image}
+                  alt={med.name}
+                  className="text-center mx-auto  object-contain mb-2"
+                />
+                <div>
+                  <h2 className="text-lg font-semibold">{med.name}</h2>
+                  <p className="text-sm text-gray-600">{med.description}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

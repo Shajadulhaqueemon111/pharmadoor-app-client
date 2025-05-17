@@ -62,12 +62,16 @@ const Footer = () => {
             <li>
               <a href="/">Refund and Return Policy</a>
             </li>
-            <li>
-              <a href="/">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="/">Disclaimer</a>
-            </li>
+            <Link to="/">
+              <li>
+                <p>Privacy Policy</p>
+              </li>
+            </Link>
+            <Link to="/">
+              <li>
+                <p>Disclaimer</p>
+              </li>
+            </Link>
           </ul>
         </div>
 
@@ -78,17 +82,17 @@ const Footer = () => {
             <Link to="/">
               {" "}
               <li>
-                <a>Buy Medicines Online</a>
+                <p>Buy Medicines Online</p>
               </li>
             </Link>
             <Link to="/">
               <li>
-                <a>Top 10 Pharmaceutical</a>
+                <p>Top 10 Pharmaceutical</p>
               </li>
             </Link>
             <Link to="/">
               <li>
-                <a>Contact Us</a>
+                <p>Contact Us</p>
               </li>
             </Link>
             <Link to="/">
@@ -98,7 +102,7 @@ const Footer = () => {
             </Link>
             <Link to="/">
               <li>
-                <a>FAQ</a>
+                <p>FAQ</p>
               </li>
             </Link>
           </ul>
@@ -112,22 +116,22 @@ const Footer = () => {
             <Link to="/">
               {" "}
               <li>
-                <a>DBID License:384191730</a>
+                <p>DBID License:384191730</p>
               </li>
             </Link>
             <Link to="/">
               {" "}
               <li>
-                <a>
+                <p>
                   Trode Licerso <br />
                   TRAD/DNCC/048628/2022
-                </a>
+                </p>
               </li>
             </Link>
 
             <Link to="/">
               <li>
-                <a>Model Pharmacy License: DC-21000</a>
+                <p>Model Pharmacy License: DC-21000</p>
               </li>
             </Link>
           </ul>
@@ -152,7 +156,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="mt-8 text-center text-sm text-gray-300">
-        &copy; {new Date().getFullYear()} Osudpotro. All rights reserved.
+        &copy; {new Date().getFullYear()} MdEmonOsudpotro. All rights reserved.
       </div>
     </div>
   );

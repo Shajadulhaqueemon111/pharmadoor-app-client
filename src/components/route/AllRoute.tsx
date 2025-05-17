@@ -13,6 +13,8 @@ import NapaDetailsPage from "../Pages/Medicines/NapaDetailsPage";
 import SeclodetailsPage from "../Pages/Medicines/SeclodetailsPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import OtciMedicineDetails from "../Pages/OtcMedicine/OticiMedicineDetails";
+import AllMedicineDetails from "../Pages/OtcMedicine/AllMedicineDetails";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
       {
         path: "/online-doctor",
         element: <OnlineDoctors />,
+      },
+      {
+        path: "otcimedicineDetails/:name",
+        element: <OtciMedicineDetails />,
+      },
+      {
+        path: "allmedicineDetails/:id",
+        element: <AllMedicineDetails />,
       },
     ],
   },
