@@ -53,7 +53,7 @@ const OtciMedicineDetails = () => {
             </p>
 
             <div className="mt-auto">
-              <Link to={`allmedicineDetails/${medicine.id}`}>
+              <Link to={`/allmedicineDetails/${medicine.id}`}>
                 <button className="btn btn-secondary w-full">
                   View Details
                 </button>

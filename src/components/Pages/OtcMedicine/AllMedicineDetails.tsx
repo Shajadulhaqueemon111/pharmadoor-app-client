@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 type Medicine = {
   id: number;
@@ -57,6 +57,11 @@ const AllMedicineDetails = () => {
             <li key={index}>{treat}</li>
           ))}
         </ul>
+      </div>
+      <div className="mt-auto">
+        <Link to="/cart">
+          <button className="btn btn-secondary w-full">Add-To-Cart</button>
+        </Link>
       </div>
     </div>
   );
