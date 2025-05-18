@@ -57,7 +57,7 @@ const NapaDetailsPage = () => {
         <strong>Uses:</strong> {medicine.uses.join(", ")}
       </p>
       <p className="text-lg font-semibold text-green-600 mt-2">
-        {medicine.price}
+        {medicine.price}Tk
       </p>
       <Link to="">
         <button className="btn btn-secondary w-full">Add Cart</button>

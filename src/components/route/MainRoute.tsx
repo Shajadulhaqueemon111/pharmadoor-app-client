@@ -6,7 +6,7 @@ import WhatsAppButton from "../Pages/GlobalWhatsUpContact/WhatsUp";
 
 const MainRoute = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-white">
       <FirstNavbar />
       <Outlet></Outlet>
       <ScrollingBtn />

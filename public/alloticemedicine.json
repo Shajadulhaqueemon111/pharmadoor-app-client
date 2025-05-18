@@ -10,6 +10,7 @@
     ],
     "symptoms": ["High temperature", "Chills", "Sweating", "Headache"],
     "treatment": ["Paracetamol", "Ibuprofen", "Rest", "Hydration"],
+    "price": "100",
     "image": "https://i.ibb.co/VWbnY30L/download-1.jpg"
   },
   {
@@ -36,6 +37,7 @@
       "Medical consultation",
       "Lab tests"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/N2QNXvfC/images-12.jpg"
   },
   {
@@ -49,6 +51,7 @@
     ],
     "symptoms": ["Mild temperature rise", "Fatigue", "Joint pain"],
     "treatment": ["NSAIDs", "Immunosuppressants", "Rest"],
+    "price": "100",
     "image": "https://i.ibb.co/dJMfh5H5/images-13.jpg"
   },
   {
@@ -58,6 +61,7 @@
     "commonCauses": ["Pneumonia", "Meningitis", "Heat stroke"],
     "symptoms": ["Confusion", "Rapid breathing", "Seizures"],
     "treatment": ["Emergency cooling", "Hospitalization", "IV fluids"],
+    "price": "100",
     "image": "https://i.ibb.co/gbNjHZSM/ns-500x500.webp"
   },
 
@@ -68,6 +72,7 @@
     "commonCauses": ["Infection", "Heat exhaustion", "Inflammation"],
     "symptoms": ["High temperature", "Chills", "Sweating", "Weakness"],
     "treatment": ["Rest", "Fluids", "Fever reducers like paracetamol"],
+    "price": "100",
     "image": "https://i.ibb.co/N2QNXvfC/images-12.jpg"
   },
   {
@@ -77,6 +82,7 @@
     "commonCauses": ["Stress", "Dehydration", "Migraine", "Tension"],
     "symptoms": ["Throbbing pain", "Sensitivity to light", "Nausea"],
     "treatment": ["Pain relievers", "Rest", "Hydration", "Cold compress"],
+    "price": "100",
     "image": "https://i.ibb.co/CKXqMd9F/Image-1.png"
   },
   {
@@ -86,6 +92,7 @@
     "commonCauses": ["Cold", "Flu", "Allergies", "Asthma"],
     "symptoms": ["Dry or wet cough", "Chest discomfort", "Throat irritation"],
     "treatment": ["Cough syrup", "Steam inhalation", "Rest", "Hydration"],
+    "price": "100",
     "image": "https://i.ibb.co/xDd5B3x/cough.png"
   },
   {
@@ -95,6 +102,7 @@
     "commonCauses": ["Indigestion", "Gas", "Food poisoning", "Ulcers"],
     "symptoms": ["Cramps", "Bloating", "Nausea", "Loss of appetite"],
     "treatment": ["Antacids", "Hydration", "Bland diet", "Rest"],
+    "price": "100",
     "image": "https://i.ibb.co/N3p47ML/stomach-ache.png"
   },
   {
@@ -104,6 +112,7 @@
     "commonCauses": ["Pollen", "Dust", "Certain foods", "Animal dander"],
     "symptoms": ["Sneezing", "Rashes", "Swelling", "Itchy eyes"],
     "treatment": ["Antihistamines", "Avoid triggers", "Topical creams"],
+    "price": "100",
     "image": "https://i.ibb.co/yF6KZJg/allergy.png"
   },
   {
@@ -126,6 +135,7 @@
       "Prescription medications",
       "Stress management"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/mVYhQJvL/Sa630c85a43f4459d8be3a8944e151746h-jpg-720x720q80.jpg"
   },
   {
@@ -148,6 +158,7 @@
       "Antibiotics (if bacterial)",
       "Intravenous (IV) fluids"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/Fk6XbfGb/shutterstock-2518184809-696x392.jpg"
   },
   {
@@ -169,6 +180,7 @@
       "Breastfeeding (if allergy-related)",
       "Petroleum jelly-based moisturizers"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/DH8CxBG1/images-14.jpg"
   },
   {
@@ -190,6 +202,7 @@
       "Wet wrap therapy",
       "Phototherapy (UV light treatment)"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/DH8CxBG1/images-14.jpg"
   },
   {
@@ -214,6 +227,7 @@
       "Bed rest (if advised)",
       "Corticosteroids for lung development"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/Y4KqXMH6/ap22057060859451-37c07ae5567268e2fdda934926e829d471a9d291.jpg"
   },
   {
@@ -237,6 +251,7 @@
       "Lactation consultation",
       "Mental health counseling"
     ],
+    "price": "100",
     "image": "https://i.ibb.co/1fQ3Jc3k/1836621-10-Best-Postnatal-Vitamins-According-to-a-Dietitian-1296x728-Header-e1be83.jpg"
   }
 ]

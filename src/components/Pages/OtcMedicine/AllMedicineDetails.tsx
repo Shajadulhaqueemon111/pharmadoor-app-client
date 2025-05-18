@@ -7,6 +7,7 @@ type Medicine = {
   description: string;
   symptoms: string[];
   treatment: string[];
+  price: string;
   image: string;
 };
 
@@ -40,7 +41,18 @@ const AllMedicineDetails = () => {
       />
       <h1 className="text-2xl font-bold text-center mb-2">{medicine.name}</h1>
       <p className="text-gray-700 text-center mb-4">{medicine.description}</p>
+      <p className="text-gray-800 text-xl font-bold mb-4 ">
+        Price: <span className="text-emerald-500">{medicine.price}TK</span>
+      </p>
 
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold">commonCauses:</h2>
+        <ul className="list-disc list-inside">
+          {medicine.symptoms.map((commoncase, index) => (
+            <li key={index}>{commoncase}</li>
+          ))}
+        </ul>
+      </div>
       <div className="mb-4">
         <h2 className="text-lg font-semibold">Symptoms:</h2>
         <ul className="list-disc list-inside">
