@@ -1,48 +1,48 @@
 import { Link, useParams } from "react-router-dom";
+
 import { useEffect, useState } from "react";
+
+import brandImage from "../../../assets/brand1.png";
 import SafetyAdvice from "../OtcMedicine/SafetyAdvice";
 import AdditionalOffer from "../OtcMedicine/AdditionalOffer";
-
-type NapaMedicine = {
+type MedicalProduct = {
   id: number;
   name: string;
-  generic: string;
-  strength: string;
-  form: string;
-  manufacturer: string;
-  uses: string[];
-  price: string;
-  image: string;
+  brand: string;
   category: string;
+  price: string;
+  stock_quantity: number;
+  rating: number;
+  color: string;
+  image: string;
 };
-import brandImage from "../../../assets/brand1.png";
-const NapaDetailsPage = () => {
+
+const ThermomiterDetails = () => {
   const { id } = useParams();
-  const [medicine, setMedicine] = useState<NapaMedicine | null>(null);
+  const [equipment, setequipment] = useState<MedicalProduct | null>(null);
 
   useEffect(() => {
-    fetch("/napa-secloallmedicine.json")
+    fetch("/equipment.json")
       .then((res) => res.json())
-      .then((data: NapaMedicine[]) => {
+      .then((data: MedicalProduct[]) => {
         const found = data.find((item) => item.id === Number(id));
-        setMedicine(found || null);
+        setequipment(found || null);
       })
       .catch((err) => console.error("Failed to load details:", err));
   }, [id]);
 
-  if (!medicine) {
+  if (!equipment) {
     return (
       <div className="text-center mt-10 text-red-600">Loading or Not Found</div>
     );
   }
-
   return (
     <div className="mt-4">
       <div className="flex flex-warm justify-evenly mx-auto">
         <div>
           <img
-            src={medicine.image}
-            alt={medicine.name}
+            src={equipment.image}
+            alt={equipment.name}
             className="w-60 h-60 mx-auto object-contain mb-4"
           />
 
@@ -61,33 +61,33 @@ const NapaDetailsPage = () => {
             </span>
           </div>
           <h1 className="text-2xl font-bold mt-2 mb-2 text-red-500">
-            {medicine.name}
+            {equipment.name}
           </h1>
           <p className="text-gray-700 font-bold mb-4 flex mx-auto items-center gap-2">
             <img src={brandImage} alt="" />{" "}
-            <span className="text-emerald-500">{medicine.manufacturer}</span>
+            <span className="text-emerald-500">{equipment.brand}</span>
           </p>
           <p className="text-gray-800  font-bold mb-4">
-            Genric:{" "}
+            Stock_Quantity:{" "}
             <span className="text-emerald-500 font-bold">
               {" "}
-              {medicine.generic}
+              {equipment.stock_quantity}
             </span>
           </p>
           <p className="text-gray-800  font-bold mb-4">
             Price:{" "}
-            <span className="text-emerald-500 "> {medicine.price} TK</span>
+            <span className="text-emerald-500 "> {equipment.price} TK</span>
           </p>
 
           <div className="mb-4">
             <p className="font-bold">
               category:{" "}
-              <span className="text-emerald-500">{medicine?.category}</span>
+              <span className="text-emerald-500">{equipment?.category}</span>
             </p>
           </div>
           <div className="mb-4"></div>
           <p className="font-bold mb-4">
-            Form: <span className="text-emerald-500">{medicine?.form}</span>
+            Colour: <span className="text-emerald-500">{equipment.color}</span>
           </p>
 
           <div className="mt-auto ">
@@ -110,4 +110,4 @@ const NapaDetailsPage = () => {
   );
 };
 
-export default NapaDetailsPage;
+export default ThermomiterDetails;

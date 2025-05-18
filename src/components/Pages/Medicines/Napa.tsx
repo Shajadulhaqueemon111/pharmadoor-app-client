@@ -11,15 +11,21 @@ type NapaMedicine = {
   uses: string[];
   price: string;
   image: string;
+  category: string;
 };
 
 const NapaMedicines = () => {
   const [napamedicines, setNapaMedicines] = useState<NapaMedicine[]>([]);
 
   useEffect(() => {
-    fetch("/napamedicine.json")
+    fetch("/napa-secloallmedicine.json")
       .then((res) => res.json())
-      .then((data) => setNapaMedicines(data))
+      .then((data) => {
+        const napaData = data.filter((item: NapaMedicine) =>
+          item.category.toLowerCase().includes("napa")
+        );
+        setNapaMedicines(napaData);
+      })
       .catch((err) => console.error("Failed to load data:", err));
   }, []);
 
@@ -46,20 +52,8 @@ const NapaMedicines = () => {
               <p className="text-sm text-gray-600">
                 <strong>Generic:</strong> {medicine.generic}
               </p>
-              {/* <p className="text-sm text-gray-600">
-                <strong>Strength:</strong> {medicine.strength}
-              </p>
-              <p className="text-sm text-gray-600">
-                <strong>Form:</strong> {medicine.form}
-              </p>
-              <p className="text-sm text-gray-600">
-                <strong>Manufacturer:</strong> {medicine.manufacturer}
-              </p>
-              <p className="text-sm text-gray-600">
-                <strong>Uses:</strong> {medicine.uses.join(", ")}
-              </p> */}
               <p className="text-base font-bold text-green-600">
-                {medicine.price}Tk
+                {medicine.price} Tk
               </p>
               <Link to={`/medicines/napaDetails/${medicine.id}`}>
                 <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-md">

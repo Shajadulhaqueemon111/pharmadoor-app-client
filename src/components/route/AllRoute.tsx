@@ -5,7 +5,7 @@ import HomePage from "../Pages/Home/Home";
 import NapaMedicines from "../Pages/Medicines/Napa";
 import SecloMedicines from "../Pages/Medicines/Seclo";
 import MonusMedicines from "../Pages/Products/Monus";
-import AltrolMedicines from "../Pages/Products/Altrol";
+
 import StethoscopePage from "../Pages/Equipments/Stethoscope";
 import ThermomiterPage from "../Pages/Equipments/Thermomiter";
 import OnlineDoctors from "../Pages/OnlineDoctor/OnlineDoctors";
@@ -15,6 +15,10 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import OtciMedicineDetails from "../Pages/OtcMedicine/OticiMedicineDetails";
 import AllMedicineDetails from "../Pages/OtcMedicine/AllMedicineDetails";
+import AllProducts from "../Pages/Products/AllProducts";
+import AllProductDetails from "../Pages/Products/AllProductDetails";
+import StethoscopeDetails from "../Pages/Equipments/StethoscopeDetails";
+import ThermomiterDetails from "../Pages/Equipments/ThermomiterDetails";
 
 const router = createBrowserRouter([
   {
@@ -55,16 +59,28 @@ const router = createBrowserRouter([
         element: <MonusMedicines />,
       },
       {
-        path: "/products/alatrol",
-        element: <AltrolMedicines />,
+        path: "/products/all-products",
+        element: <AllProducts />,
+      },
+      {
+        path: "/products/:id",
+        element: <AllProductDetails />,
       },
       {
         path: "/equipments/stethoscope",
         element: <StethoscopePage />,
       },
       {
+        path: "/equipments/:id",
+        element: <StethoscopeDetails />,
+      },
+      {
         path: "/equipments/thermometer",
         element: <ThermomiterPage />,
+      },
+      {
+        path: "/equipments/:id",
+        element: <ThermomiterDetails />,
       },
       {
         path: "/online-doctor",

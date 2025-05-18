@@ -56,23 +56,6 @@ const SecondNavbar = () => {
                   defaultValue=""
                   onChange={(e) => {
                     const value = e.target.value;
-                    if (value) navigate(`/products/${value}`);
-                  }}
-                >
-                  <option disabled value="">
-                    Products
-                  </option>
-                  <option value="alatrol">Alatrol</option>
-                  <option value="monas">Monas</option>
-                </select>
-              </li>
-
-              <li>
-                <select
-                  className="select select-sm w-full mt-1"
-                  defaultValue=""
-                  onChange={(e) => {
-                    const value = e.target.value;
                     if (value) navigate(`/equipments/${value}`);
                   }}
                 >
@@ -83,7 +66,9 @@ const SecondNavbar = () => {
                   <option value="thermometer">Thermometer</option>
                 </select>
               </li>
-
+              <li>
+                <Link to="/products/all-products">All-Products</Link>
+              </li>
               <li>
                 <Link to="/online-doctor">Online Doctor</Link>
               </li>
@@ -120,23 +105,6 @@ const SecondNavbar = () => {
                 defaultValue=""
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value) navigate(`/products/${value}`);
-                }}
-              >
-                <option disabled value="">
-                  Products
-                </option>
-                <option value="alatrol">Alatrol</option>
-                <option value="monas">Monas</option>
-              </select>
-            </li>
-
-            <li>
-              <select
-                className="select select-sm"
-                defaultValue=""
-                onChange={(e) => {
-                  const value = e.target.value;
                   if (value) navigate(`/equipments/${value}`);
                 }}
               >
@@ -147,14 +115,16 @@ const SecondNavbar = () => {
                 <option value="thermometer">Thermometer</option>
               </select>
             </li>
-
+            <li>
+              <Link to="/products/all-products">All-Products</Link>
+            </li>
             <li>
               <Link to="/online-doctor">Online Doctor</Link>
             </li>
           </ul>
         </div>
 
-        <div className="navbar-end">{/* Future buttons or search */}</div>
+        <div className="navbar-end"></div>
       </div>
     </div>
   );

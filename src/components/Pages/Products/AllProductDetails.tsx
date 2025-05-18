@@ -1,9 +1,9 @@
-import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import SafetyAdvice from "../OtcMedicine/SafetyAdvice";
+import { Link, useParams } from "react-router-dom";
 import AdditionalOffer from "../OtcMedicine/AdditionalOffer";
-
-type NapaMedicine = {
+import brandImage from "../../../assets/brand1.png";
+import SafetyAdvice from "../OtcMedicine/SafetyAdvice";
+type MedicineDetails = {
   id: number;
   name: string;
   generic: string;
@@ -15,15 +15,14 @@ type NapaMedicine = {
   image: string;
   category: string;
 };
-import brandImage from "../../../assets/brand1.png";
-const NapaDetailsPage = () => {
+const AllProductDetails = () => {
   const { id } = useParams();
-  const [medicine, setMedicine] = useState<NapaMedicine | null>(null);
+  const [medicine, setMedicine] = useState<MedicineDetails | null>(null);
 
   useEffect(() => {
     fetch("/napa-secloallmedicine.json")
       .then((res) => res.json())
-      .then((data: NapaMedicine[]) => {
+      .then((data: MedicineDetails[]) => {
         const found = data.find((item) => item.id === Number(id));
         setMedicine(found || null);
       })
@@ -35,7 +34,6 @@ const NapaDetailsPage = () => {
       <div className="text-center mt-10 text-red-600">Loading or Not Found</div>
     );
   }
-
   return (
     <div className="mt-4">
       <div className="flex flex-warm justify-evenly mx-auto">
@@ -110,4 +108,4 @@ const NapaDetailsPage = () => {
   );
 };
 
-export default NapaDetailsPage;
+export default AllProductDetails;
