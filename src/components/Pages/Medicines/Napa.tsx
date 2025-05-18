@@ -59,7 +59,7 @@ const NapaMedicines = () => {
                 <strong>Uses:</strong> {medicine.uses.join(", ")}
               </p> */}
               <p className="text-base font-bold text-green-600">
-                {medicine.price}
+                {medicine.price}Tk
               </p>
               <Link to={`/medicines/napaDetails/${medicine.id}`}>
                 <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-md">

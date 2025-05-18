@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 type Medicine = {
   id: number;
   name: string;
+  category: string;
   description: string;
-  commonCauses: string;
   image: string;
 };
 
@@ -48,7 +48,7 @@ const OtcMedicine = () => {
       >
         {medicines.map((med) => (
           <SwiperSlide key={med.id}>
-            <Link to={`otcimedicineDetails/${med.name}`}>
+            <Link to={`otcimedicineDetails/${med.category}`}>
               <div className="bg-white rounded-xl shadow-xl p-4 h-80  flex flex-col justify-between">
                 <img
                   style={imazeStyle}
@@ -57,7 +57,7 @@ const OtcMedicine = () => {
                   className="text-center mx-auto  object-contain mb-2"
                 />
                 <div>
-                  <h2 className="text-lg font-semibold">{med.name}</h2>
+                  <h2 className="text-lg font-semibold">{med.category}</h2>
                   <p className="text-sm text-gray-600">{med.description}</p>
                 </div>
               </div>

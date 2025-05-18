@@ -4,9 +4,10 @@ import { Link, useParams } from "react-router-dom";
 type Medicine = {
   id: number;
   name: string;
-  description: string;
-  symptoms: string[];
-  treatment: string[];
+  brand: string;
+  category: string;
+  dosage: string;
+  form: string;
   price: string;
   image: string;
 };
@@ -39,37 +40,26 @@ const AllMedicineDetails = () => {
         alt={medicine.name}
         className="w-60 h-60 mx-auto object-contain mb-4"
       />
-      <h1 className="text-2xl font-bold text-center mb-2">{medicine.name}</h1>
-      <p className="text-gray-700 text-center mb-4">{medicine.description}</p>
+      <h1 className="text-2xl font-bold text-center mb-2 text-red-500">
+        {medicine.name}
+      </h1>
+      <p className="text-gray-700 font-bold mb-4">
+        Brand: <span className="text-emerald-500">{medicine.brand}</span>
+      </p>
       <p className="text-gray-800 text-xl font-bold mb-4 ">
-        Price: <span className="text-emerald-500">{medicine.price}TK</span>
+        Price: <span className="text-emerald-500"> {medicine.price} TK</span>
       </p>
 
       <div className="mb-4">
-        <h2 className="text-lg font-semibold">commonCauses:</h2>
-        <ul className="list-disc list-inside">
-          {medicine.symptoms.map((commoncase, index) => (
-            <li key={index}>{commoncase}</li>
-          ))}
-        </ul>
+        <p className="font-bold">
+          Dosage: <span className="text-emerald-500">{medicine?.dosage}</span>
+        </p>
       </div>
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold">Symptoms:</h2>
-        <ul className="list-disc list-inside">
-          {medicine.symptoms.map((symptom, index) => (
-            <li key={index}>{symptom}</li>
-          ))}
-        </ul>
-      </div>
+      <div className="mb-4"></div>
+      <p className="font-bold">
+        Form: <span className="text-emerald-500">{medicine?.form}</span>
+      </p>
 
-      <div>
-        <h2 className="text-lg font-semibold">Treatment:</h2>
-        <ul className="list-disc list-inside">
-          {medicine.treatment.map((treat, index) => (
-            <li key={index}>{treat}</li>
-          ))}
-        </ul>
-      </div>
       <div className="mt-auto">
         <Link to="/cart">
           <button className="btn btn-secondary w-full">Add-To-Cart</button>

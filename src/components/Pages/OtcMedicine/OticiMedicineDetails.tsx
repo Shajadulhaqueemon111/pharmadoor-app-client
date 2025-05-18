@@ -4,14 +4,16 @@ import { useEffect, useState } from "react";
 type Medicine = {
   id: number;
   name: string;
-  description: string;
-  symptoms: string[];
-  treatment: string[];
+  brand: string;
+  category: string;
+  dosage: string;
+  form: string;
+  price: string;
   image: string;
 };
 
 const OtciMedicineDetails = () => {
-  const { name } = useParams<{ name: string }>();
+  const { category } = useParams<{ category: string }>();
   const [medicines, setMedicines] = useState<Medicine[]>([]);
 
   useEffect(() => {
@@ -19,11 +21,11 @@ const OtciMedicineDetails = () => {
       .then((res) => res.json())
       .then((data: Medicine[]) => {
         const filtered = data.filter(
-          (med) => med.name.toLowerCase() === name?.toLowerCase()
+          (med) => med.category.toLowerCase() === category?.toLowerCase()
         );
         setMedicines(filtered);
       });
-  }, [name]);
+  }, [category]);
 
   if (medicines.length === 0) {
     return (
@@ -33,7 +35,7 @@ const OtciMedicineDetails = () => {
 
   return (
     <div className="mx-auto p-5">
-      <h1 className="text-center text-xl font-bold">Medicine-{name}</h1>
+      <h1 className="text-center text-xl font-bold">Medicine-{category}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mt-3">
         {medicines.map((medicine) => (
           <div
@@ -45,12 +47,9 @@ const OtciMedicineDetails = () => {
               alt={medicine.name}
               className="w-full h-48 object-contain mb-4"
             />
-            <h2 className="text-2xl font-bold text-center mb-2 text-blue-600">
+            <h2 className="text-xl font-bold text-center mb-2 text-blue-600">
               {medicine.name}
             </h2>
-            <p className="text-gray-700 mb-3 flex-grow">
-              {medicine.description}
-            </p>
 
             <div className="mt-auto">
               <Link to={`/allmedicineDetails/${medicine.id}`}>

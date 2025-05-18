@@ -1,257 +1,266 @@
 [
   {
     "id": 1,
-    "name": "Fever",
-    "description": "A temporary increase in average body temperature above 98.6°F (37°C), often indicating an immune response.",
-    "commonCauses": [
-      "Viral infection",
-      "Bacterial infection",
-      "Heat exhaustion"
-    ],
-    "symptoms": ["High temperature", "Chills", "Sweating", "Headache"],
-    "treatment": ["Paracetamol", "Ibuprofen", "Rest", "Hydration"],
-    "price": "100",
+    "name": "Paracetamol",
+    "brand": "Napa",
+    "category": "fever",
+    "dosage": "500mg",
+    "form": "tablet",
+    "price": "1.20",
     "image": "https://i.ibb.co/VWbnY30L/download-1.jpg"
   },
   {
     "id": 2,
-    "name": "Fever",
-    "description": "Common symptom in children, often linked to minor infections.",
-    "commonCauses": ["Ear infection", "Common cold", "Childhood vaccinations"],
-    "symptoms": ["Body warmth", "Irritability", "Loss of appetite", "Lethargy"],
-    "treatment": [
-      "Acetaminophen (for children)",
-      "Lukewarm sponge bath",
-      "Fluids"
-    ],
+    "name": "Ibuprofen",
+    "brand": "Advil",
+
+    "category": "fever",
+    "dosage": "200mg",
+    "form": "tablet",
+    "price": "1,250.00 (24 tablets)",
     "image": "https://i.ibb.co/vxmRkcx1/acetaminophen-suppositories.webp"
   },
   {
     "id": 3,
-    "name": "Fever",
-    "description": "Persistent fever lasting more than 3 days; may indicate serious conditions.",
-    "commonCauses": ["Urinary tract infection", "Sinusitis", "Malaria"],
-    "symptoms": ["Night sweats", "Persistent high temperature", "Muscle pain"],
-    "treatment": [
-      "Antibiotics (if bacterial)",
-      "Medical consultation",
-      "Lab tests"
-    ],
-    "price": "100",
+    "name": "Aspirin",
+    "brand": "Disprin",
+
+    "category": "fever",
+    "dosage": "300mg",
+    "form": "tablet",
+    "price": "1.66",
     "image": "https://i.ibb.co/N2QNXvfC/images-12.jpg"
   },
   {
     "id": 4,
-    "name": "Fever",
-    "description": "Low-grade fever often associated with chronic inflammation.",
-    "commonCauses": [
-      "Rheumatoid arthritis",
-      "Autoimmune disorders",
-      "Medication side effects"
-    ],
-    "symptoms": ["Mild temperature rise", "Fatigue", "Joint pain"],
-    "treatment": ["NSAIDs", "Immunosuppressants", "Rest"],
-    "price": "100",
+    "name": "Acetaminophen",
+    "brand": "Tylenol",
+
+    "category": "fever",
+    "dosage": "500mg",
+    "form": "tablet",
+    "price": "1,047.37 (24 caplets)",
     "image": "https://i.ibb.co/dJMfh5H5/images-13.jpg"
   },
   {
     "id": 5,
-    "name": "Fever",
-    "description": "High-grade fever (above 103°F/39.4°C) requiring urgent care.",
-    "commonCauses": ["Pneumonia", "Meningitis", "Heat stroke"],
-    "symptoms": ["Confusion", "Rapid breathing", "Seizures"],
-    "treatment": ["Emergency cooling", "Hospitalization", "IV fluids"],
-    "price": "100",
+    "name": "Diclofenac",
+    "brand": "Voltaren",
+
+    "category": "fever",
+    "dosage": "50mg",
+    "form": "gel",
+    "price": "475.00 (50gm)",
     "image": "https://i.ibb.co/gbNjHZSM/ns-500x500.webp"
   },
 
   {
     "id": 6,
-    "name": "Fever",
-    "description": "An increase in body temperature, often due to an infection.",
-    "commonCauses": ["Infection", "Heat exhaustion", "Inflammation"],
-    "symptoms": ["High temperature", "Chills", "Sweating", "Weakness"],
-    "treatment": ["Rest", "Fluids", "Fever reducers like paracetamol"],
-    "price": "100",
-    "image": "https://i.ibb.co/N2QNXvfC/images-12.jpg"
+    "name": "Migranil 0.5mg",
+    "brand": "Eskayef Pharmaceuticals Ltd.",
+    "form": "Tablet",
+    "category": "Headache",
+    "price": "3.01",
+    "image": "https://i.ibb.co/F4rR6LHP/Migranil-1-Copy.jpg"
   },
   {
     "id": 7,
-    "name": "Headache",
-    "description": "Pain in the head or upper neck. It can be a symptom of stress or an underlying health issue.",
-    "commonCauses": ["Stress", "Dehydration", "Migraine", "Tension"],
-    "symptoms": ["Throbbing pain", "Sensitivity to light", "Nausea"],
-    "treatment": ["Pain relievers", "Rest", "Hydration", "Cold compress"],
-    "price": "100",
-    "image": "https://i.ibb.co/CKXqMd9F/Image-1.png"
+    "name": "Excedrin Migraine Caplets (24 Count)",
+    "brand": "Excedrin",
+    "form": "Caplet",
+    "category": "Headache",
+    "price": "1,260",
+    "image": "https://i.ibb.co/F4rR6LHP/Migranil-1-Copy.jpg"
   },
   {
     "id": 8,
-    "name": "Cough",
-    "description": "A reflex action to clear your airways of mucus and irritants.",
-    "commonCauses": ["Cold", "Flu", "Allergies", "Asthma"],
-    "symptoms": ["Dry or wet cough", "Chest discomfort", "Throat irritation"],
-    "treatment": ["Cough syrup", "Steam inhalation", "Rest", "Hydration"],
-    "price": "100",
-    "image": "https://i.ibb.co/xDd5B3x/cough.png"
+    "name": "Tufnil 200mg Tablet",
+    "brand": "Eskayef Pharmaceuticals Ltd.",
+    "form": "Tablet",
+    "category": "Headache",
+    "price": "95",
+    "image": "https://i.ibb.co/F4rR6LHP/Migranil-1-Copy.jpg"
   },
   {
     "id": 9,
-    "name": "Stomach Ache",
-    "description": "Pain that occurs between the chest and pelvic regions.",
-    "commonCauses": ["Indigestion", "Gas", "Food poisoning", "Ulcers"],
-    "symptoms": ["Cramps", "Bloating", "Nausea", "Loss of appetite"],
-    "treatment": ["Antacids", "Hydration", "Bland diet", "Rest"],
-    "price": "100",
-    "image": "https://i.ibb.co/N3p47ML/stomach-ache.png"
+    "name": "Tylenol Extra Strength 500mg (24 Caplets)",
+    "brand": "Tylenol",
+    "form": "Caplet",
+    "category": "Headache",
+    "price": "1,090",
+    "image": "https://i.ibb.co/F4rR6LHP/Migranil-1-Copy.jpg"
   },
   {
     "id": 10,
-    "name": "Allergy",
-    "description": "An immune system reaction to a foreign substance.",
-    "commonCauses": ["Pollen", "Dust", "Certain foods", "Animal dander"],
-    "symptoms": ["Sneezing", "Rashes", "Swelling", "Itchy eyes"],
-    "treatment": ["Antihistamines", "Avoid triggers", "Topical creams"],
-    "price": "100",
-    "image": "https://i.ibb.co/yF6KZJg/allergy.png"
+    "name": "Zolmitriptan 2.5mg Tablet",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "form": "Tablet",
+    "category": "Headache",
+    "price": "25",
+    "image": "https://i.ibb.co/F4rR6LHP/Migranil-1-Copy.jpg"
   },
+
   {
     "id": 11,
-    "name": "Diarrhea",
-    "description": "Chronic diarrhea lasting weeks, often linked to underlying health conditions.",
-    "commonCauses": [
-      "Irritable bowel syndrome (IBS)",
-      "Inflammatory bowel disease (IBD)",
-      "Celiac disease"
-    ],
-    "symptoms": [
-      "Frequent loose stools",
-      "Abdominal bloating",
-      "Weight loss",
-      "Chronic fatigue"
-    ],
-    "treatment": [
-      "Dietary modifications (e.g., low-FODMAP)",
-      "Prescription medications",
-      "Stress management"
-    ],
-    "price": "100",
-    "image": "https://i.ibb.co/mVYhQJvL/Sa630c85a43f4459d8be3a8944e151746h-jpg-720x720q80.jpg"
+    "name": "ORS Saline",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "category": "Diarrhea",
+    "dosage": "10.25 gm",
+    "form": "Oral Powder",
+    "price": "10",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
   },
   {
     "id": 12,
-    "name": "Diarrhea",
-    "description": "Severe acute diarrhea with risk of rapid dehydration.",
-    "commonCauses": [
-      "Cholera",
-      "Parasitic infections (e.g., Giardia)",
-      "Antibiotic misuse"
-    ],
-    "symptoms": [
-      "Watery stools 10+ times/day",
-      "Sunken eyes",
-      "Blood in stool",
-      "High fever"
-    ],
-    "treatment": [
-      "Zinc supplements",
-      "Antibiotics (if bacterial)",
-      "Intravenous (IV) fluids"
-    ],
-    "price": "100",
-    "image": "https://i.ibb.co/Fk6XbfGb/shutterstock-2518184809-696x392.jpg"
+    "name": "Loperamide 2mg",
+    "category": "Diarrhea",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "dosage": "2 mg",
+    "form": "Capsule",
+    "price": "1.50",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
   },
   {
     "id": 13,
-    "name": "Eczema",
-    "description": "Infantile eczema, commonly affecting babies and young children.",
-    "commonCauses": [
-      "Food allergies (e.g., milk, eggs)",
-      "Sensitive skin",
-      "Family history of atopy"
-    ],
-    "symptoms": [
-      "Red rashes on cheeks/scalp",
-      "Oozing or crusting",
-      "Intense itching at night"
-    ],
-    "treatment": [
-      "Hypoallergenic baby products",
-      "Breastfeeding (if allergy-related)",
-      "Petroleum jelly-based moisturizers"
-    ],
-    "price": "100",
-    "image": "https://i.ibb.co/DH8CxBG1/images-14.jpg"
+    "name": "Azithromycin 250mg",
+    "category": "Diarrhea",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "dosage": "250 mg",
+    "form": "Tablet",
+    "price": "25",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
   },
   {
     "id": 14,
-    "name": "Eczema",
-    "description": "Severe/chronic eczema requiring advanced medical intervention.",
-    "commonCauses": [
-      "Autoimmune triggers",
-      "Chronic stress",
-      "Hormonal imbalances"
-    ],
-    "symptoms": [
-      "Thickened leathery skin",
-      "Open sores from scratching",
-      "Secondary bacterial infections"
-    ],
-    "treatment": [
-      "Biologic drugs (e.g., Dupilumab)",
-      "Wet wrap therapy",
-      "Phototherapy (UV light treatment)"
-    ],
-    "price": "100",
-    "image": "https://i.ibb.co/DH8CxBG1/images-14.jpg"
+    "name": "Zinc Sulfate 20mg",
+    "category": "Diarrhea",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "dosage": "20 mg",
+    "form": "Tablet",
+    "price": "2",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
   },
   {
     "id": 15,
-    "name": "Pregnancy",
-    "description": "High-risk pregnancy requiring specialized medical monitoring due to potential complications.",
-    "commonCauses": [
-      "Gestational diabetes",
-      "Preeclampsia",
-      "Multiple gestation (twins/triplets)",
-      "Advanced maternal age (35+ years)"
-    ],
-    "symptoms": [
-      "Severe swelling in hands/face",
-      "Persistent headaches",
-      "Blurred vision",
-      "Reduced fetal movement"
-    ],
-    "treatment": [
-      "Frequent ultrasounds/NST tests",
-      "Blood pressure monitoring",
-      "Bed rest (if advised)",
-      "Corticosteroids for lung development"
-    ],
-    "price": "100",
-    "image": "https://i.ibb.co/Y4KqXMH6/ap22057060859451-37c07ae5567268e2fdda934926e829d471a9d291.jpg"
+    "name": "Metronidazole 400mg",
+    "category": "Diarrhea",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "dosage": "400 mg",
+    "form": "Tablet",
+    "price": "1.80",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
   },
+
   {
     "id": 16,
-    "name": "Pregnancy",
-    "description": "Postpartum care focusing on maternal recovery after childbirth.",
-    "commonCauses": [
-      "Physical trauma from delivery",
-      "Hormonal fluctuations",
-      "Breastfeeding challenges"
-    ],
-    "symptoms": [
-      "Postpartum bleeding (lochia)",
-      "Mood swings (baby blues/depression)",
-      "Perineal pain",
-      "Breast engorgement"
-    ],
-    "treatment": [
-      "Postnatal vitamins",
-      "Pelvic floor exercises",
-      "Lactation consultation",
-      "Mental health counseling"
-    ],
-    "price": "100",
-    "image": "https://i.ibb.co/1fQ3Jc3k/1836621-10-Best-Postnatal-Vitamins-According-to-a-Dietitian-1296x728-Header-e1be83.jpg"
+    "name": "Xzema Cream 0.1%+2%",
+    "category": "Eczema",
+    "dosage": "0.1%+2%",
+
+    "form": "Cream",
+    "brand": "ACI",
+    "price": "201.35",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Ezex Cream 0.05%",
+    "category": "Eczema",
+    "dosage": "0.05%",
+    "form": "Cream",
+    "brand": "Opsonin",
+    "price": "50.00",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Dermasol 0.05% Ointment",
+    "category": "Eczema",
+    "dosage": "0.05%",
+    "form": "Ointment",
+    "brand": "Renata",
+    "price": "75.00",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Tacrolimus Ointment",
+    "category": "Eczema",
+    "dosage": "0.1%",
+    "form": "Ointment",
+    "brand": "Square",
+    "price": "120.00",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Fortison Cream",
+    "category": "Eczema",
+    "dosage": "0.05%",
+    "form": "Cream",
+    "brand": "Eskayef",
+    "price": "90.00",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Nature's Nutrition Prenatal Multivitamin",
+    "category": "Pregnancy",
+    "dosage": "Once daily",
+    "form": "Tablet",
+    "brand": "Nature's Nutrition",
+    "price": "1,200",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Pregnacare Max",
+    "category": "Pregnancy",
+    "dosage": "2 tablets + 1 capsule daily",
+    "form": "Tablet + Capsule",
+    "brand": "Vitabiotics",
+    "price": "1,500",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Conceive Plus Prenatal Vitamins",
+    "category": "Pregnancy",
+    "dosage": "2 capsules daily",
+    "form": "Capsule",
+    "brand": "Conceive Plus",
+    "price": "1,000",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Vitafusion Prenatal Gummy Vitamins",
+    "category": "Pregnancy",
+    "dosage": "2 gummies daily",
+    "form": "Gummy",
+    "brand": "Vitafusion",
+    "price": "1,200",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+  {
+    "id": 25,
+    "name": "FullWell Prenatal Multivitamin",
+    "category": "Pregnancy",
+    "dosage": "8 capsules daily",
+    "form": "Capsule",
+    "brand": "FullWell",
+    "price": "2,000",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
+  },
+
+  {
+    "id": 25,
+    "name": "FullWell Prenatal Multivitamin",
+    "category": "Pregnancy",
+    "dosage": "8 capsules daily",
+    "form": "Capsule",
+    "brand": "Beximco Pharmaceuticals Ltd.",
+    "price": "2,000",
+    "image": "https://i.ibb.co/xN2GGJP/capsule-1079838-scaled.jpg"
   }
 ]

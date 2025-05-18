@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         element: <OnlineDoctors />,
       },
       {
-        path: "otcimedicineDetails/:name",
+        path: "otcimedicineDetails/:category",
         element: <OtciMedicineDetails />,
       },
       {
