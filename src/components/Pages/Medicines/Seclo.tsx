@@ -48,7 +48,7 @@ const SecloMedicines = () => {
               </p>
 
               <p className="text-base font-bold text-green-600">
-                {medicine.price}
+                {medicine.price}Tk
               </p>
               <Link to={`/medicines/secloDetails/${medicine.id}`}>
                 <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-md">

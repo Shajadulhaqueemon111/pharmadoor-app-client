@@ -8,6 +8,7 @@ const MainRoute = () => {
   return (
     <div className="min-h-screen bg-white">
       <FirstNavbar />
+
       <Outlet></Outlet>
       <ScrollingBtn />
       <WhatsAppButton />
