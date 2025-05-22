@@ -1,9 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import AdditionalOffer from "../OtcMedicine/AdditionalOffer";
 import SafetyAdvice from "../OtcMedicine/SafetyAdvice";
+import AdditionalOffer from "../OtcMedicine/AdditionalOffer";
 import brandImage from "../../../assets/brand1.png";
-type SecloMedicine = {
+
+type NapaMedicine = {
   id: number;
   name: string;
   generic: string;
@@ -12,18 +13,18 @@ type SecloMedicine = {
   manufacturer: string;
   uses: string[];
   price: string;
-  category: string;
   image: string;
+  category: string;
 };
 
-const SeclodetailsPage = () => {
+const NapaDetailsPage = () => {
   const { id } = useParams();
-  const [medicine, setMedicine] = useState<SecloMedicine | null>(null);
+  const [medicine, setMedicine] = useState<NapaMedicine | null>(null);
 
   useEffect(() => {
     fetch("/napa-secloallmedicine.json")
       .then((res) => res.json())
-      .then((data: SecloMedicine[]) => {
+      .then((data: NapaMedicine[]) => {
         const found = data.find((item) => item.id === Number(id));
         setMedicine(found || null);
       })
@@ -37,72 +38,68 @@ const SeclodetailsPage = () => {
   }
 
   return (
-    <div className="mt-4">
-      <div className="flex flex-warm justify-evenly mx-auto">
-        <div>
+    <div className="mt-6 px-4 md:px-10 lg:px-20  mx-auto">
+      <div className="flex flex-col lg:flex-row gap-6">
+        {/* Image & Advice Section */}
+        <div className="w-full lg:w-1/3 flex flex-col items-center">
           <img
             src={medicine.image}
             alt={medicine.name}
-            className="w-60 h-60 mx-auto object-contain mb-4"
+            className="w-64 h-64 object-contain mb-4"
           />
-
-          <div>
-            <SafetyAdvice />
-          </div>
+          <SafetyAdvice />
         </div>
-        {/* data */}
-        <div className=" bg-white gap-4">
-          <div className="h-14 bg-linear-to-bl from-violet-500 to-fuchsia-500">
-            <span className="flex flex-wrap py-2 px-2 mx-auto items-center gap-4 text-white">
-              ব্যবসার জন্য পাইকারি দামে পণ্য কিনতে চাইলে{" "}
-              <Link to="/register">
-                <button className="btn btn-secondary">Register</button>
-              </Link>
+
+        {/* Medicine Info */}
+        <div className="w-full lg:w-2/3 bg-white shadow-lg p-6 rounded-xl">
+          <div className="bg-gradient-to-bl from-violet-500 to-fuchsia-500 text-white rounded-lg p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-center sm:text-left">
+              ব্যবসার জন্য পাইকারি দামে পণ্য কিনতে চাইলে
             </span>
+            <Link to="/register">
+              <button className="btn btn-secondary">Register</button>
+            </Link>
           </div>
-          <h1 className="text-2xl font-bold mt-2 mb-2 text-red-500">
+
+          <h1 className="text-2xl font-bold text-red-500 mb-3">
             {medicine.name}
           </h1>
-          <p className="text-gray-700 font-bold mb-4 flex mx-auto items-center gap-2">
-            <img src={brandImage} alt="" />{" "}
-            <span className="text-emerald-500">{medicine.manufacturer}</span>
-          </p>
-          <p className="text-gray-800  font-bold mb-4">
-            Genric:{" "}
-            <span className="text-emerald-500 font-bold">
-              {" "}
-              {medicine.generic}
-            </span>
-          </p>
-          <p className="text-gray-800  font-bold mb-4">
-            Price:{" "}
-            <span className="text-emerald-500 "> {medicine.price} TK</span>
-          </p>
 
-          <div className="mb-4">
-            <p className="font-bold">
-              category:{" "}
-              <span className="text-emerald-500">{medicine?.category}</span>
+          <div className="flex items-center gap-2 text-gray-800 font-semibold mb-4">
+            <img src={brandImage} alt="brand" className="w-6 h-6" />
+            <span className="text-emerald-600">{medicine.manufacturer}</span>
+          </div>
+
+          <div className="space-y-2 text-gray-700 font-medium">
+            <p>
+              <strong>Generic:</strong>{" "}
+              <span className="text-emerald-600">{medicine.generic}</span>
+            </p>
+            <p>
+              <strong>Price:</strong>{" "}
+              <span className="text-emerald-600">{medicine.price} TK</span>
+            </p>
+            <p>
+              <strong>Category:</strong>{" "}
+              <span className="text-emerald-600">{medicine.category}</span>
+            </p>
+            <p>
+              <strong>Form:</strong>{" "}
+              <span className="text-emerald-600">{medicine.form}</span>
             </p>
           </div>
-          <div className="mb-4"></div>
-          <p className="font-bold mb-4">
-            Form: <span className="text-emerald-500">{medicine?.form}</span>
-          </p>
 
-          <div className="mt-auto ">
+          <div className="mt-6">
             <Link to="/cart">
               <button className="btn bg-[#0E7673] text-white w-full">
-                Add-To-Cart
+                Add To Cart
               </button>
             </Link>
           </div>
-          {/* extra data  */}
-          <div className="mt-2">
-            <div>
-              <p className="font-bold mb-2">Additional Offer</p>
-              <AdditionalOffer />
-            </div>
+
+          <div className="mt-6">
+            <h2 className="font-bold mb-2">Additional Offer</h2>
+            <AdditionalOffer />
           </div>
         </div>
       </div>
@@ -110,4 +107,4 @@ const SeclodetailsPage = () => {
   );
 };
 
-export default SeclodetailsPage;
+export default NapaDetailsPage;
