@@ -1,54 +1,20 @@
-# React + TypeScript + Vite
+🔬PharmaDoor - Pharmacy Management Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A role-based pharmacy management system where Admins and Pharmacists collaborate to manage medicines and prescriptions securely and efficiently.
 
-Currently, two official plugins are available:
+🚀 Tech Stack:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend: Next.js, React,TypeScript, Tailwind CSS
+Backend/API: TypeScript, Node.js, Express 
+Database: MongoDB + Mongoose
+Authentication: JWT-based, role-protected (User & Admin)
+Deployment: Vercel
+🧑‍⚕️ Pharmacist Registration Flow Pharmacists can register themselves, but cannot log into the dashboard until approved by an Admin.
 
-## Expanding the ESLint configuration
+📦 Medicine Management Pharmacists can sell medicines, manage inventory, and update availability (after getting access).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+📜 Admin Panel Admins can: >Approve or reject pharmacist accounts >Monitor sales and medicine stock >Manage users and roles
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+📊 Dashboard Access Only approved pharmacists can access their dashboards to view and manage medicine-related tasks.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+🛡️ Protected Routes Backend is protected with JWT tokens and custom middleware to ensure only authorized users can perform sensitive actions.
