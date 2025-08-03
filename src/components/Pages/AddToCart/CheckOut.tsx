@@ -48,7 +48,7 @@ const Checkout = () => {
     console.log(orderData);
     try {
       const response = await fetch(
-        "http://localhost:5000/api/v1/order/create",
+        "https://pharma-door-backend.vercel.app/api/v1/order/create",
         {
           method: "POST",
           headers: {

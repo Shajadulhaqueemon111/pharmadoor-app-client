@@ -30,7 +30,9 @@ const OfferSection = () => {
     setLoading(true);
 
     try {
-      const response = await axios("http://localhost:5000/api/v1/offer");
+      const response = await axios(
+        "https://pharma-door-backend.vercel.app/api/v1/offer"
+      );
 
       setMedicineOffers(response.data.data);
     } catch (err) {
@@ -52,7 +54,7 @@ const OfferSection = () => {
     );
   }
   if (!medicineoffers.length) {
-    return <div>No Offer Medicine</div>;
+    return <div className="text-center">No Offer Medicine</div>;
   }
   const filterOfferProduct = medicineoffers.filter((offers) =>
     offers.name.toLowerCase().includes(searchText.toLowerCase())

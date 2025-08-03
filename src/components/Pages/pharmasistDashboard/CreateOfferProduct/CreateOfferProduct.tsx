@@ -60,7 +60,7 @@ const CreateOfferProduct = () => {
         return;
       }
       const response = await axios.post(
-        "http://localhost:5000/api/v1/offer/create-offer",
+        "https://pharma-door-backend.vercel.app/api/v1/offer/create-offer",
         data,
         {
           headers: {

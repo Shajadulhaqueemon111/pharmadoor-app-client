@@ -19,7 +19,7 @@ const OtcMedicineDetails = () => {
   const medicineType = queryParams.get("type");
   const { searchText } = useOutletContext<OutletContextType>();
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/medicine")
+    fetch("https://pharma-door-backend.vercel.app/api/v1/medicine")
       .then((res) => res.json())
       .then((response) => {
         const allMedicines: Medicine[] = response.data;

@@ -18,6 +18,8 @@ interface DecodedToken {
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
   const location = useLocation();
@@ -25,11 +27,6 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const form = e.currentTarget;
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const password = (form.elements.namedItem("password") as HTMLInputElement)
-      .value;
 
     try {
       const response = await axios.post(
@@ -47,15 +44,12 @@ const Login = () => {
       }
 
       const decoded = jwtDecode<DecodedToken>(accessToken);
-
       const role = decoded.role;
       const status = decoded.status;
       const profileImage = decoded.profileImage;
       const name = decoded.name;
+      console.log(profileImage, name);
       console.log(decoded);
-      console.log(status);
-      console.log(profileImage);
-      console.log(name);
 
       if (role === "pharmacist" && status !== "approved") {
         toast.error(
@@ -67,13 +61,11 @@ const Login = () => {
       login(accessToken);
       toast.success("Login successful");
 
-      // Navigate after login
-      if (from && from !== "/login") {
+      if (from && from !== "/login" && from !== "/") {
         navigate(from, { replace: true });
       } else {
-        // Role-based fallback navigation
         if (role === "admin") {
-          navigate("/dashboard/admin-dashboard", { replace: true });
+          navigate("/admin-dashboard", { replace: true });
         } else if (role === "pharmacist") {
           navigate("/pharmacist-dashboard", { replace: true });
         } else if (role === "user") {
@@ -85,6 +77,16 @@ const Login = () => {
     } catch (error: any) {
       toast.error("Invalid email or password");
       console.error("Login failed:", error.response?.data || error.message);
+    }
+  };
+
+  const fillDemoCredentials = (role: "admin" | "pharmacist") => {
+    if (role === "admin") {
+      setEmail("admin@gmail.com");
+      setPassword("admin1234");
+    } else if (role === "pharmacist") {
+      setEmail("mdshajdulhaqueemon8@gmail.com");
+      setPassword("12345");
     }
   };
 
@@ -107,6 +109,24 @@ const Login = () => {
           Login
         </h2>
 
+        {/* Demo Credentials Buttons */}
+        <div className="flex justify-center gap-4 mb-4">
+          <button
+            type="button"
+            onClick={() => fillDemoCredentials("admin")}
+            className="bg-blue-100 hover:bg-blue-200 text-blue-700 px-4 py-1 rounded text-sm"
+          >
+            Fill Admin Credentials
+          </button>
+          <button
+            type="button"
+            onClick={() => fillDemoCredentials("pharmacist")}
+            className="bg-green-100 hover:bg-green-200 text-green-700 px-4 py-1 rounded text-sm"
+          >
+            Fill Pharmacist Credentials
+          </button>
+        </div>
+
         <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label
@@ -119,6 +139,8 @@ const Login = () => {
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="Enter your email"
               required
@@ -137,6 +159,8 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-10"
                 placeholder="Enter your password"
                 required
@@ -157,6 +181,7 @@ const Login = () => {
           >
             Login
           </button>
+
           <p className="text-center text-sm">
             Don't have an account?{" "}
             <Link to="/register" className="font-bold text-green-700">

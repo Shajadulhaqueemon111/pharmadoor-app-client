@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../privateRoute/AuthContext";
 
 const UserMenu = ({
-  user,
   handleLogout,
 }: {
   user: any;
   handleLogout: () => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { user } = useAuth();
   if (!user) {
     return (
       <Link to="/login">
@@ -20,7 +20,6 @@ const UserMenu = ({
   }
 
   if (user.role !== "user") {
-    // role user না হলে শুধু logout button দেখাবে
     return (
       <button onClick={handleLogout} className="btn btn-error btn-sm text-xs">
         Logout
@@ -28,7 +27,6 @@ const UserMenu = ({
     );
   }
 
-  // role 'user' হলে avatar এবং ড্রপডাউন
   return (
     <div className="relative inline-block text-left">
       <button
@@ -39,7 +37,7 @@ const UserMenu = ({
       >
         <div className="w-8 rounded-full overflow-hidden border-2 border-green-500">
           <img
-            src={user.avatar || "https://i.pravatar.cc/150?img=3"} // ডিফল্ট avatar
+            src={user.profileImage || "https://i.pravatar.cc/150?img=3"}
             alt="User Avatar"
           />
         </div>
@@ -59,11 +57,7 @@ const UserMenu = ({
               Profile <span className="badge">New</span>
             </Link>
           </li>
-          <li>
-            <Link to="/settings" onClick={() => setIsOpen(false)}>
-              Settings
-            </Link>
-          </li>
+
           <li>
             <button
               onClick={() => {

@@ -3,7 +3,9 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CalculateSummary from "./CalculateSummery";
 import { BsBagFill } from "react-icons/bs";
-
+// type Props = {
+//   onCloseDrawer?: () => void;
+// };
 const AddToCart = () => {
   const location = useLocation();
   const [cartItems, setCartItems] = useState<any[]>([]);
@@ -159,7 +161,7 @@ const AddToCart = () => {
 
         {/* Summary */}
         <div className="p-4 border-t">
-          <CalculateSummary />
+          <CalculateSummary onCloseDrawer={() => setIsOpen(false)} />
         </div>
       </div>
     </>

@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-const CalculateSummary = () => {
+type Props = {
+  onCloseDrawer?: () => void;
+};
+const CalculateSummary = ({ onCloseDrawer }: Props) => {
   const [cartItems, setCartItems] = useState<any[]>([]);
 
   const updateCartFromStorage = () => {
@@ -63,7 +65,12 @@ const CalculateSummary = () => {
       </div>
 
       <Link to="/medicines/checkout">
-        <button className="mt-6 w-full bg-green-600 hover:bg-green-700 transition text-white font-semibold py-2 px-4 rounded-lg shadow">
+        <button
+          onClick={() => {
+            onCloseDrawer?.();
+          }}
+          className="mt-6 w-full bg-green-600 hover:bg-green-700 transition text-white font-semibold py-2 px-4 rounded-lg shadow"
+        >
           🛒 Checkout
         </button>
       </Link>

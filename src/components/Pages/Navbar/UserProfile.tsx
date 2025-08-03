@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../privateRoute/AuthContext";
 
 const UserProfile: React.FC = () => {
-  const { user } = useAuth(); // ✅ pulling user from context
+  const { user } = useAuth();
 
   if (!user) {
     return (
@@ -42,9 +42,9 @@ const UserProfile: React.FC = () => {
         </div>
 
         <div className="mt-6">
-          <button className="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg font-semibold transition">
+          {/* <button className="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg font-semibold transition">
             Edit Profile
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
