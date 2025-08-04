@@ -7,7 +7,7 @@ const HowItWorks = () => {
         "Find your required medicines quickly using our smart search.",
       icon: (
         <svg
-          className="w-12 h-12 text-green-600"
+          className="w-12 h-12 text-cyan-500"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -39,7 +39,7 @@ const HowItWorks = () => {
         "Upload your doctor’s prescription securely to get exact medicines.",
       icon: (
         <svg
-          className="w-12 h-12 text-green-600"
+          className="w-12 h-12 text-cyan-500"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -62,7 +62,7 @@ const HowItWorks = () => {
         "Get your medicines delivered at your doorstep quickly and safely.",
       icon: (
         <svg
-          className="w-12 h-12 text-green-600"
+          className="w-12 h-12 text-cyan-500"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -100,9 +100,7 @@ const HowItWorks = () => {
           {steps.map(({ id, title, description, icon }) => (
             <div key={id} className="bg-white rounded-lg p-6 shadow-md flex-1">
               <div className="mb-4">{icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-green-700">
-                {title}
-              </h3>
+              <h3 className="text-xl font-semibold mb-2 text-black">{title}</h3>
               <p className="text-gray-600">{description}</p>
             </div>
           ))}

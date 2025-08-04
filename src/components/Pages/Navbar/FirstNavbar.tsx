@@ -5,7 +5,6 @@ import SecondNavbar from "./SecondNavbar";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../privateRoute/AuthContext";
-// import CartButton from "../AddToCart/CartBtn";
 
 import SearchBar from "./SearchBar";
 import UserMenu from "./UsreMenu";

@@ -3,18 +3,19 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
+// Correct Blog interface
 interface Blog {
-  id: number;
+  _id: string;
   title: string;
   slug: string;
   excerpt: string;
   content: string;
-  image: string;
-  publishedAt: string;
+  thumbnail: string;
+  createdAt: string;
 }
 
 const BlogDetailsPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { _id } = useParams<{ _id: string }>();
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -22,10 +23,10 @@ const BlogDetailsPage = () => {
     const fetchBlog = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/blog.json");
-        const blogs: Blog[] = response.data;
-        const foundBlog = blogs.find((b) => b.slug === slug) || null;
-        setBlog(foundBlog);
+        const response = await axios.get(
+          `https://pharma-door-backend.vercel.app/api/v1/blog/${_id}`
+        );
+        setBlog(response.data.data);
       } catch (error) {
         console.error(error);
         setBlog(null);
@@ -35,7 +36,7 @@ const BlogDetailsPage = () => {
     };
 
     fetchBlog();
-  }, [slug]);
+  }, [_id]);
 
   if (loading) {
     return (
@@ -55,37 +56,38 @@ const BlogDetailsPage = () => {
 
   return (
     <main className="max-w-2xl mx-auto px-6 py-12">
-      <h1 className="text-2xl font-bold mb-4 ">{blog.title}</h1>
+      <h1 className="text-2xl font-bold mb-4">{blog.title}</h1>
       <time
-        dateTime={blog.publishedAt}
+        dateTime={blog.createdAt}
         className="block mb-8 text-gray-400 italic"
       >
         Published on{" "}
-        {new Date(blog.publishedAt).toLocaleDateString(undefined, {
+        {new Date(blog.createdAt).toLocaleDateString("en-US", {
           year: "numeric",
-          month: "long",
+          month: "long", // change to "short" for Aug instead of August
           day: "numeric",
         })}
       </time>
+
       <img
-        src={blog.image}
+        src={blog.thumbnail}
         alt={blog.title}
-        className="w-full h-full object-cover rounded-lg mb-8 shadow-md"
+        className="w-full h-auto object-cover rounded-lg mb-8 shadow-md"
         loading="lazy"
       />
 
-      <article className="prose prose-lg max-w-none text-gray-800">
+      <article className="prose prose-lg max-w-none text-gray-800 mb-6">
         {blog.excerpt}
       </article>
+
       <article className="prose prose-lg max-w-none text-gray-800">
         {blog.content}
       </article>
 
-      <div className="mt-4">
+      <div className="mt-6">
         <Link to="/">
-          <button className="flex gap-2 mt-2 text-blue-500 btn ">
-            {" "}
-            <IoIosArrowRoundBack className=" text-2xl" /> Back To Blog{" "}
+          <button className="flex items-center gap-2 text-blue-500 hover:underline">
+            <IoIosArrowRoundBack className="text-2xl" /> Back To Blog
           </button>
         </Link>
       </div>

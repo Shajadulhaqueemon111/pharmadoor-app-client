@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <section className="min-h-screen bg-white px-4 py-16 md:px-10">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-primary mb-6">
+        <h1 className="text-2xl font-bold text-center text-black mb-6">
           About Pharmadoor
         </h1>
         <p className="text-center text-gray-600 text-lg md:text-xl mb-12 max-w-3xl mx-auto">

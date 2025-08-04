@@ -37,26 +37,17 @@ const AdminSidebar = ({ children }: AdminSidebarProps) => {
       icon: <Verified className="text-indigo-500" />,
       label: "Document Verification",
     },
-    // {
-    //   to: "/admin-dashboard/products",
-    //   icon: <FiBox />,
-    //   label: "Product",
-    // },
-    // {
-    //   to: "/admin-dashboard/create-product",
-    //   icon: <FiList />,
-    //   label: "All Products",
-    // },
   ];
 
   return (
-    <div className="flex">
+    <div className="flex min-h-screen bg-gray-100 text-black">
+      {/* Sidebar */}
       <aside
         className={`${
           isOpen ? "block" : "hidden"
-        } lg:block fixed top-0 left-0 h-screen w-64 z-50 bg-gradient-to-bl from-violet-500 to-fuchsia-500 text-white p-6 transition-all duration-300`}
+        } lg:block fixed top-0 left-0 h-screen w-64 z-50 bg-white border-r border-gray-200 p-6 transition-all duration-300 shadow-md`}
       >
-        <h2 className="text-2xl font-bold mb-8 text-center tracking-wide">
+        <h2 className="text-2xl font-bold mb-10 text-center tracking-wide text-indigo-700">
           Admin Panel
         </h2>
 
@@ -78,16 +69,20 @@ const AdminSidebar = ({ children }: AdminSidebarProps) => {
         </nav>
       </aside>
 
+      {/* Mobile Menu Button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button
-          className="text-white bg-gray-800 p-2 rounded-md shadow-md"
+          className="text-white bg-indigo-700 hover:bg-indigo-800 p-2 rounded-md shadow-md transition"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           <FiMenu size={24} />
         </button>
       </div>
 
-      <main className="flex-1 lg:ml-64 p-6 w-full">{children}</main>
+      {/* Main Content */}
+      <main className="flex-1 lg:ml-64 p-6 min-h-screen text-black">
+        {children}
+      </main>
     </div>
   );
 };
@@ -112,15 +107,16 @@ const SidebarLink = ({
     to && (exact ? location.pathname === to : location.pathname.startsWith(to));
 
   const baseClasses =
-    "flex items-center gap-3 px-4 py-3 rounded-md transition text-sm font-medium";
-  const activeClasses = "bg-white text-violet-600 font-semibold shadow";
-  const inactiveClasses = "hover:bg-violet-600 hover:bg-opacity-30";
+    "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-300 text-sm font-medium";
+  const activeClasses = "bg-indigo-100 text-indigo-700 font-semibold";
+  const inactiveClasses =
+    "text-gray-700 hover:bg-indigo-50 hover:text-indigo-600";
 
   if (onClick) {
     return (
       <button
         onClick={onClick}
-        className={`${baseClasses} ${inactiveClasses} w-full text-left text-white`}
+        className={`${baseClasses} ${inactiveClasses} w-full text-left`}
       >
         <span className="text-xl">{icon}</span>
         <span>{label}</span>

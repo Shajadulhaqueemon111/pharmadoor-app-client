@@ -10,7 +10,7 @@ import AddToCart from "../Pages/AddToCart/CartBtn";
 const MainRoute = () => {
   const [searchText, setSearchText] = useState("");
   return (
-    <div className=" min-h-screen bg-white text-black dark:bg-black dark:text-white">
+    <div className=" min-h-screen bg-white text-black  dark:text-white">
       <FirstNavbar searchText={searchText} setSearchText={setSearchText} />
       <Toaster />
       <AddToCart />

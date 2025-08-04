@@ -62,6 +62,7 @@ import OtcMedicineDetailsPerCard from "../Pages/OtcMedicine/OtcMedicineDetailsPe
 import CreateOfferProduct from "../Pages/pharmasistDashboard/CreateOfferProduct/CreateOfferProduct";
 import AllOfferProducts from "../Pages/pharmasistDashboard/CreateOfferProduct/AllOfferProducts";
 import UpdateOfferPage from "../Pages/pharmasistDashboard/CreateOfferProduct/UpdateOfferPage";
+import BlogPostForm from "../Pages/pharmasistDashboard/Blog/CreateBlog";
 
 const router = createBrowserRouter([
   {
@@ -114,7 +115,7 @@ const router = createBrowserRouter([
         element: <OtcMedicineDetailsPerCard />,
       },
       {
-        path: "/blog/:slug",
+        path: "/blog/:_id",
         element: <BlogDetailsPage />,
       },
       {
@@ -320,6 +321,10 @@ const router = createBrowserRouter([
       {
         path: "update-offer-page/:_id",
         element: <UpdateOfferPage />,
+      },
+      {
+        path: "create-blog",
+        element: <BlogPostForm />,
       },
     ],
   },

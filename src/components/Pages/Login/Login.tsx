@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useAuth } from "../privateRoute/AuthContext";
 import { jwtDecode } from "jwt-decode";
+// import GoogleLogin from "./GoogleLogin";
 
 interface DecodedToken {
   name: string;
@@ -198,6 +199,7 @@ const Login = () => {
             </Link>
           </p>
         </form>
+        <div className="text-center">{/* <GoogleLogin /> */}</div>
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ interface DecodedToken {
   role: string;
   email: string;
   profileImage: string;
+
   status?: string;
   exp?: number;
 }
