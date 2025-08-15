@@ -49,91 +49,108 @@ const Register = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+      {/* Background Video */}
       <video
         autoPlay
         loop
         muted
-        className="absolute w-full h-full object-cover z-0"
+        className="absolute w-full h-full object-cover brightness-75 contrast-110 saturate-110 filter z-0"
       >
         <source src={bgVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="absolute inset-0 bg-opacity-50 z-10" />
+      {/* Overlay with subtle blur */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10"></div>
 
-      <div className="relative z-20 bg-white bg-opacity-90 shadow-2xl rounded-xl p-8 w-full max-w-md">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Create an Account
+      {/* Form Container */}
+      <div className="relative z-20 bg-white bg-opacity-90 backdrop-blur-md shadow-2xl rounded-3xl p-10 w-full max-w-md mx-4">
+        <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-8 tracking-wide">
+          Create Your Account
         </h2>
 
-        <form className="space-y-5" onSubmit={handleRegister}>
+        <form className="space-y-6" onSubmit={handleRegister}>
+          {/* Full Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="name"
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
               Full Name
             </label>
             <input
+              id="name"
               type="text"
               placeholder="Your full name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:border-indigo-600 transition"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
 
+          {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Email Address
             </label>
             <input
+              id="email"
               type="email"
               placeholder="Your email address"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:border-indigo-600 transition"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+          {/* Password */}
+          <div className="relative">
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
               Password
             </label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Create a password"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-10"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-2 flex items-center text-gray-500"
-              >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
-          </div>
-
-          <div>
+            <input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Create a password"
+              className="w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-400 focus:border-indigo-600 transition pr-12"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button
-              type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition duration-300"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center text-gray-500"
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
-              Register
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
+
+          {/* Register Button */}
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-lg transition duration-300"
+          >
+            Register
+          </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        {/* Login Link */}
+        <p className="mt-6 text-center text-gray-600 text-sm">
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-indigo-600 font-medium hover:underline"
+            className="font-semibold text-indigo-600 hover:text-indigo-800 hover:underline"
           >
             Login here
           </Link>

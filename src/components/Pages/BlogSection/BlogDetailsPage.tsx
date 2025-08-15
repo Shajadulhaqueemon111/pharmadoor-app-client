@@ -56,7 +56,7 @@ const BlogDetailsPage = () => {
 
   return (
     <main className="max-w-2xl mx-auto px-6 py-12">
-      <h1 className="text-2xl font-bold mb-4">{blog.title}</h1>
+      <h1 className="text-2xl font-bold mb-4 text-black">{blog.title}</h1>
       <time
         dateTime={blog.createdAt}
         className="block mb-8 text-gray-400 italic"

@@ -15,7 +15,7 @@ const SubscribeSection = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <h1 className="text-center text-xl font-bold mt-4 mb-4">
+      <h1 className="text-center text-3xl text-blue-700 font-bold mt-4 mb-4">
         Subscribe for Updates & Offers
       </h1>
       <div

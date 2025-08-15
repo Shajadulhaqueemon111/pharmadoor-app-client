@@ -103,77 +103,81 @@ const AllOfferProducts = () => {
   return (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4">All Offer Products</h2>
-      <table className="min-w-full border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border px-3 py-2">Image</th>
-            <th className="border px-3 py-2">Name</th>
-            <th className="border px-3 py-2">Brand</th>
-            <th className="border px-3 py-2">Generic</th>
-            <th className="border px-3 py-2">Category</th>
-            <th className="border px-3 py-2">Dosage</th>
-            <th className="border px-3 py-2">Form</th>
-            <th className="border px-3 py-2">Price</th>
 
-            <th className="border px-3 py-2">Offer %</th>
-            <th className="border px-3 py-2">Stock</th>
-            <th className="border px-3 py-2">update</th>
-            <th className="border px-3 py-2">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentItems.map((prod) => (
-            <tr key={prod._id} className="text-center">
-              <td className="border px-3 py-2">
-                <img
-                  src={prod.medicineImage}
-                  alt={prod.name}
-                  className="h-16 mx-auto"
-                />
-              </td>
-              <td className="border px-3 py-2">{prod.name}</td>
-              <td className="border px-3 py-2">{prod.brand}</td>
-              <td className="border px-3 py-2">{prod.generic}</td>
-              <td className="border px-3 py-2">{prod.category}</td>
-              <td className="border px-3 py-2">{prod.dosage}</td>
-              <td className="border px-3 py-2">{prod.form}</td>
-              <td className="border px-3 py-2">{prod.price}</td>
-
-              <td className="border px-3 py-2">{prod.offerPercent}%</td>
-              <td className="border px-3 py-2">{prod.stock_quantity}</td>
-              <td className="border px-3 py-2 space-x-2">
-                <Link
-                  to={`/pharmacist-dashboard/update-offer-page/${prod._id}`}
-                >
-                  <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
-                    Update
+      {/* Scrollable container for responsiveness */}
+      <div className="overflow-x-auto">
+        <table className="min-w-full border border-gray-300 text-sm md:text-base">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border px-3 py-2">Image</th>
+              <th className="border px-3 py-2">Name</th>
+              <th className="border px-3 py-2">Brand</th>
+              <th className="border px-3 py-2">Generic</th>
+              <th className="border px-3 py-2">Category</th>
+              <th className="border px-3 py-2">Dosage</th>
+              <th className="border px-3 py-2">Form</th>
+              <th className="border px-3 py-2">Price</th>
+              <th className="border px-3 py-2">Offer %</th>
+              <th className="border px-3 py-2">Stock</th>
+              <th className="border px-3 py-2">Update</th>
+              <th className="border px-3 py-2">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentItems.map((prod) => (
+              <tr key={prod._id} className="text-center">
+                <td className="border px-3 py-2">
+                  <img
+                    src={prod.medicineImage}
+                    alt={prod.name}
+                    className="h-12 w-auto mx-auto object-contain"
+                  />
+                </td>
+                <td className="border px-3 py-2">{prod.name}</td>
+                <td className="border px-3 py-2">{prod.brand}</td>
+                <td className="border px-3 py-2">{prod.generic}</td>
+                <td className="border px-3 py-2">{prod.category}</td>
+                <td className="border px-3 py-2">{prod.dosage}</td>
+                <td className="border px-3 py-2">{prod.form}</td>
+                <td className="border px-3 py-2">{prod.price}</td>
+                <td className="border px-3 py-2">{prod.offerPercent}%</td>
+                <td className="border px-3 py-2">{prod.stock_quantity}</td>
+                <td className="border px-3 py-2">
+                  <Link
+                    to={`/pharmacist-dashboard/update-offer-page/${prod._id}`}
+                  >
+                    <button className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 text-xs md:text-sm">
+                      Update
+                    </button>
+                  </Link>
+                </td>
+                <td className="border px-3 py-2">
+                  <button
+                    onClick={() => handleDelete(prod._id)}
+                    className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 text-xs md:text-sm"
+                  >
+                    Delete
                   </button>
-                </Link>
-              </td>
-              <td className="border px-3 py-2 space-x-2">
-                <button
-                  onClick={() => handleDelete(prod._id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-          {offerProducts.length === 0 && (
-            <tr>
-              <td colSpan={12} className="py-4 text-center text-gray-500">
-                No offer products found.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-      <div className="flex justify-center items-center mt-10 space-x-2">
+                </td>
+              </tr>
+            ))}
+            {offerProducts.length === 0 && (
+              <tr>
+                <td colSpan={12} className="py-4 text-center text-gray-500">
+                  No offer products found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Pagination */}
+      <div className="flex flex-wrap justify-center items-center mt-6 gap-2">
         <button
           onClick={() => gotToPage(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-primary text-white rounded disabled:opacity-50"
+          className="px-3 py-1 bg-primary text-white rounded disabled:opacity-50"
         >
           Prev
         </button>
@@ -184,7 +188,7 @@ const AllOfferProducts = () => {
             <button
               key={page}
               onClick={() => gotToPage(page)}
-              className={`px-4 py-2 rounded ${
+              className={`px-3 py-1 rounded text-sm md:text-base ${
                 currentPage === page
                   ? "bg-primary text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
@@ -198,7 +202,7 @@ const AllOfferProducts = () => {
         <button
           onClick={() => gotToPage(currentPage + 1)}
           disabled={currentPage === totalPage}
-          className="px-4 py-2 bg-primary text-white rounded disabled:opacity-50"
+          className="px-3 py-1 bg-primary text-white rounded disabled:opacity-50"
         >
           Next
         </button>

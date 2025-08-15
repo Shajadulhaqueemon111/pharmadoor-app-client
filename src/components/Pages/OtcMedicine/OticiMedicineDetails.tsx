@@ -1,6 +1,7 @@
 import { Link, useLocation, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 type Medicine = {
   _id: string;
   name: string;
@@ -18,6 +19,9 @@ const OtcMedicineDetails = () => {
   const queryParams = new URLSearchParams(location.search);
   const medicineType = queryParams.get("type");
   const { searchText } = useOutletContext<OutletContextType>();
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   useEffect(() => {
     fetch("https://pharma-door-backend.vercel.app/api/v1/medicine")
       .then((res) => res.json())
@@ -37,27 +41,37 @@ const OtcMedicineDetails = () => {
   );
   return (
     <div className="px-4 mt-10">
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center text-green-600">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center text-black">
         Showing results for: {medicineType}
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        data-aos="fade-up"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {serachFilter.map((med) => (
           <div
             key={med._id}
-            className="bg-white rounded-xl shadow-xl p-4 flex flex-col justify-between"
+            className="bg-white rounded-xl shadow-lg p-5 flex flex-col justify-between transform transition duration-300 hover:scale-105 hover:shadow-2xl"
           >
             <img
               src={med.medicineImage}
               alt={med.name}
-              className="h-40 w-full object-contain mb-4"
+              className="h-40 w-full object-contain mb-4 rounded-md"
             />
-            <h2 className="text-lg font-semibold mb-2">name: {med.name}</h2>
-            <h2 className="text-lg font-semibold mb-2">price: {med.price}</h2>
-            <p className="text-sm text-gray-600 mb-4">{med.description}</p>
+            <h2 className="text-lg font-semibold mb-2 text-gray-900">
+              Name: {med.name}
+            </h2>
+            <h2 className="text-lg font-semibold mb-2 text-gray-900">
+              Price: {med.price}
+            </h2>
+            <p className="text-sm text-gray-600 mb-6 line-clamp-3">
+              {med.description}
+            </p>
+            {/* line-clamp-3 will limit description to 3 lines (requires plugin or modern Tailwind) */}
 
             <Link to={`/medicine-details/${med._id}`}>
-              <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+              <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
                 View Details
               </button>
             </Link>

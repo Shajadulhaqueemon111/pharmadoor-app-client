@@ -90,7 +90,7 @@ const AllProducts = () => {
 
   return (
     <div className="px-4 py-8 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">
+      <h1 className="text-2xl font-bold text-center text-blue-600 mb-8">
         All Medicines
       </h1>
 
@@ -101,9 +101,7 @@ const AllProducts = () => {
             <h3 className="text-lg font-semibold mb-2">Filter by Brand</h3>
             <select
               className="w-full border px-3 py-2 rounded"
-              onChange={(e) =>
-                console.log(setSelectedBrand(e.target.value || null))
-              }
+              onChange={(e) => setSelectedBrand(e.target.value || null)}
               value={selectedBrand || ""}
             >
               <option value="">All Brands</option>
@@ -160,25 +158,33 @@ const AllProducts = () => {
             paginatedProducts.map((medicine) => (
               <div
                 key={medicine._id}
-                className="bg-white border rounded-xl shadow-md hover:shadow-lg transition duration-200 overflow-hidden"
+                className="group bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 min-h-[320px] flex flex-col"
               >
-                <img
-                  src={medicine.medicineImage}
-                  alt={medicine.name}
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-3 space-y-1">
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {medicine.name}
-                  </h2>
-                  <p className="text-sm text-gray-600">
-                    <strong>Brand:</strong> {medicine.brand}
-                  </p>
-                  <p className="text-base font-bold text-green-600">
-                    {medicine.price} Tk
-                  </p>
+                {/* Image with zoom effect */}
+                <div className="overflow-hidden">
+                  <img
+                    src={medicine.medicineImage}
+                    alt={medicine.name}
+                    className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Card content */}
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="space-y-1 flex-grow">
+                    <h2 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition">
+                      {medicine.name}
+                    </h2>
+                    <p className="text-sm text-gray-600">
+                      <strong>Brand:</strong> {medicine.brand}
+                    </p>
+                    <p className="text-base font-bold text-green-600">
+                      {medicine.price} Tk
+                    </p>
+                  </div>
+
                   <Link to={`/products/${medicine._id}`}>
-                    <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-md">
+                    <button className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2.5 rounded-md transition-colors duration-300">
                       View Details
                     </button>
                   </Link>

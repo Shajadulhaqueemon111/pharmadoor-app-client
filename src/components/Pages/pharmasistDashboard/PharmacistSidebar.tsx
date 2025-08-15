@@ -9,7 +9,15 @@ import {
   FiMenu,
 } from "react-icons/fi";
 import { useAuth } from "../privateRoute/AuthContext";
-import { BlocksIcon, Clock, ListOrdered, Percent, Podcast } from "lucide-react";
+import {
+  Blocks,
+  BlocksIcon,
+  Clock,
+  CreativeCommonsIcon,
+  ListOrdered,
+  Percent,
+  Podcast,
+} from "lucide-react";
 import { FaAllergies } from "react-icons/fa";
 import { MdWarningAmber } from "react-icons/md";
 
@@ -95,6 +103,16 @@ const PharmacistSidebar = ({ children }: AdminSidebarProps) => {
               to="/pharmacist-dashboard/create-blog"
               icon={<BlocksIcon />}
               label="Create Blog"
+            />
+            <SidebarLink
+              to="/pharmacist-dashboard/all-animal-medicine"
+              icon={<CreativeCommonsIcon />}
+              label="all-animal-medicine"
+            />
+            <SidebarLink
+              to="/pharmacist-dashboard/create-animal-medicine"
+              icon={<Blocks />}
+              label="create-animal-medicine"
             />
             <SidebarLink
               icon={<FiLogOut />}

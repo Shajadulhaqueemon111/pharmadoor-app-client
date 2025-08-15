@@ -89,7 +89,7 @@ const HowItWorks = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">
+        <h2 className="text-3xl font-bold text-blue-700 mb-6">
           How Pharmadoor Works
         </h2>
         <p className="text-gray-600 mb-12 max-w-2xl mx-auto">

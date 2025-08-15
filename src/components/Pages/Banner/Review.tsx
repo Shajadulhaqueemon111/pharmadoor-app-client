@@ -36,7 +36,9 @@ const Review = () => {
 
   return (
     <div>
-      <h1 className="text-center text-xl font-bold">Customer Review</h1>
+      <h1 className="text-center text-3xl font-bold text-blue-700">
+        Customer Review
+      </h1>
       <div className="bg-white py-10 px-5 max-w-7xl mx-auto rounded-2xl shadow-xl">
         <h2 className="text-2xl font-bold text-center mb-6">
           What Our Customers Say

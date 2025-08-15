@@ -1,60 +1,58 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import brandImage from "../../../assets/brand1.png";
+import { ScaleLoader } from "react-spinners";
 import SafetyAdvice from "../OtcMedicine/SafetyAdvice";
 import AdditionalOffer from "../OtcMedicine/AdditionalOffer";
 import toast from "react-hot-toast";
-import { ScaleLoader } from "react-spinners";
 
-type MedicalProduct = {
-  id: number;
+type AnimalMedicineType = {
+  _id: string;
   name: string;
-  brand: string;
+
   category: string;
   price: string;
-  stock_quantity: number;
-  rating: number;
-  color: string;
-
+  stock: string;
   medicineImage: string;
 };
 
-const StethoscopeDetails = () => {
+const AnimalMedicineDetails = () => {
   const { _id } = useParams();
-  const [equipment, setEquipment] = useState<MedicalProduct | null>(null);
+  const [medicine, setMedicine] = useState<AnimalMedicineType | null>(null);
 
   useEffect(() => {
-    fetch(`https://pharma-door-backend.vercel.app/api/v1/equipment/${_id}`)
+    fetch(
+      `https://pharma-door-backend.vercel.app/api/v1/animal-medicine/${_id}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        setEquipment(data.data || null);
+        setMedicine(data.data || null);
       })
-      .catch((err) => console.error("Failed to load details:", err));
+      .catch((err) => console.error("Failed to load medicine details:", err));
   }, [_id]);
 
-  if (!equipment) {
-    return (
-      <div className="flex justify-center ">
-        <ScaleLoader color="#2cabab" height={35} />
-      </div>
-    );
-  }
   const handleAddToCart = () => {
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
 
     const productWithModel = {
-      ...equipment,
+      ...medicine,
       quantity: 1,
-      model: "equipment",
+      model: "animalMedicine",
     };
 
     const updatedCart = [...existingCart, productWithModel];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-    toast.success(" Equipment added to cart");
+    toast.success("Medicine added to cart");
     window.dispatchEvent(new Event("cartUpdated"));
   };
+
+  if (!medicine) {
+    return (
+      <div className="flex justify-center mt-20">
+        <ScaleLoader color="#2cabab" height={35} />
+      </div>
+    );
+  }
 
   return (
     <div className="mt-4 px-4">
@@ -62,18 +60,17 @@ const StethoscopeDetails = () => {
         {/* Image and SafetyAdvice */}
         <div className="flex flex-col items-center">
           <img
-            src={equipment.medicineImage}
-            alt={equipment.name}
+            src={medicine.medicineImage}
+            alt={medicine.name}
             className="w-60 h-60 object-contain mb-4"
           />
           <SafetyAdvice />
         </div>
 
-        {/* Equipment Details */}
         <div className="bg-white p-4 rounded-lg shadow">
           <div className="bg-gradient-to-bl from-violet-500 to-fuchsia-500 text-white p-3 rounded-md mb-4 text-center">
             <p className="flex flex-col sm:flex-row items-center justify-center gap-2">
-              ব্যবসার জন্য পাইকারি দামে পণ্য কিনতে চাইলে
+              ব্যবসার জন্য পাইকারি দামে কিনতে চাইলে
               <Link to="/register">
                 <button className="btn btn-secondary ml-2">Register</button>
               </Link>
@@ -81,36 +78,26 @@ const StethoscopeDetails = () => {
           </div>
 
           <h1 className="text-2xl font-bold text-red-500 mb-2">
-            {equipment.name}
+            {medicine.name}
           </h1>
-
-          <p className="text-gray-700 font-bold mb-2 flex items-center gap-2">
-            <img src={brandImage} alt="Brand" className="w-5 h-5" />
-            <span className="text-emerald-500">{equipment.brand}</span>
-          </p>
 
           <p className="text-gray-800 font-bold mb-2">
             Stock Quantity:{" "}
-            <span className="text-emerald-500">{equipment.stock_quantity}</span>
+            <span className="text-emerald-500">{medicine.stock}</span>
           </p>
 
           <p className="text-gray-800 font-bold mb-2">
-            Price:{" "}
-            <span className="text-emerald-500">{equipment.price} TK</span>
-          </p>
-
-          <p className="text-gray-800 font-bold mb-2">
-            Category:{" "}
-            <span className="text-emerald-500">{equipment.category}</span>
+            Price: <span className="text-emerald-500">{medicine.price} TK</span>
           </p>
 
           <p className="text-gray-800 font-bold mb-4">
-            Colour: <span className="text-emerald-500">{equipment.color}</span>
+            Category:{" "}
+            <span className="text-emerald-500">{medicine.category}</span>
           </p>
 
           <button
             onClick={handleAddToCart}
-            className="btn bg-blue-500  hover:bg-blue-700 text-white w-full"
+            className="btn bg-blue-500 hover:bg-blue-700 text-white w-full"
           >
             Add-To-Cart
           </button>
@@ -125,4 +112,4 @@ const StethoscopeDetails = () => {
   );
 };
 
-export default StethoscopeDetails;
+export default AnimalMedicineDetails;

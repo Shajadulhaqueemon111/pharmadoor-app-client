@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../privateRoute/AuthContext";
 import { useState } from "react";
-
 import Dropdown from "@mui/joy/Dropdown";
 import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
@@ -16,31 +15,27 @@ const SecondNavbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav
-      className={`bg-white shadow-md sticky top-0 ${
-        menuOpen ? "hidden" : "block"
-      } z-30`}
-    >
+    <nav className="bg-white shadow-md sticky top-0 z-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0">
-            <Link
-              to="/"
-              className="text-2xl font-bold text-teal-600 hover:text-teal-700"
-              onClick={() => setMenuOpen(false)}
-            >
-              MedStore
-            </Link>
-          </div>
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="text-2xl font-bold text-teal-600 hover:text-teal-700 transition-colors"
+            onClick={closeMenu}
+          >
+            MedStore
+          </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
             <Link
               to="/"
-              className="text-gray-700 hover:text-teal-600 px-3 py-2 rounded-md text-md font-medium"
-              onClick={() => setMenuOpen(false)}
+              className="text-gray-700 hover:text-teal-600 px-3 py-2 text-md font-medium transition-colors"
             >
               Home
             </Link>
@@ -59,20 +54,10 @@ const SecondNavbar = () => {
                 Medicines
               </MenuButton>
               <Menu variant="outlined" sx={{ minWidth: 160 }}>
-                <MenuItem
-                  onClick={() => {
-                    navigate("/medicines/napa");
-                    setMenuOpen(false);
-                  }}
-                >
+                <MenuItem onClick={() => navigate("/medicines/napa")}>
                   Napa
                 </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    navigate("/medicines/seclo");
-                    setMenuOpen(false);
-                  }}
-                >
+                <MenuItem onClick={() => navigate("/medicines/seclo")}>
                   Seclo
                 </MenuItem>
               </Menu>
@@ -92,20 +77,10 @@ const SecondNavbar = () => {
                 Equipments
               </MenuButton>
               <Menu variant="outlined" sx={{ minWidth: 180 }}>
-                <MenuItem
-                  onClick={() => {
-                    navigate("/equipments/stethoscope");
-                    setMenuOpen(false);
-                  }}
-                >
+                <MenuItem onClick={() => navigate("/equipments/stethoscope")}>
                   Stethoscope
                 </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    navigate("/equipments/thermometer");
-                    setMenuOpen(false);
-                  }}
-                >
+                <MenuItem onClick={() => navigate("/equipments/thermometer")}>
                   Thermometer
                 </MenuItem>
               </Menu>
@@ -113,64 +88,54 @@ const SecondNavbar = () => {
 
             <Link
               to="/products/all-products"
-              className="text-gray-700 hover:text-teal-600 px-3 py-2 rounded-md text-md font-medium"
-              onClick={() => setMenuOpen(false)}
+              className="hover:text-teal-600 transition-colors"
             >
               All Medicine
             </Link>
             <Link
               to="/contact-page"
-              className="text-gray-700 hover:text-teal-600 px-3 py-2 rounded-md text-md font-medium"
-              onClick={() => setMenuOpen(false)}
+              className="hover:text-teal-600 transition-colors"
             >
               Contact
             </Link>
             <Link
               to="/medicines/aboute"
-              className="text-gray-700 hover:text-teal-600 px-3 py-2 rounded-md text-md font-medium"
-              onClick={() => setMenuOpen(false)}
+              className="hover:text-teal-600 transition-colors"
             >
-              Aboute
+              About
             </Link>
 
             {isAdmin && (
               <Link
                 to="/admin-dashboard"
-                className="text-gray-700 hover:text-teal-600 px-3 py-2 rounded-md text-md font-medium"
-                onClick={() => setMenuOpen(false)}
+                className="hover:text-teal-600 transition-colors"
               >
                 Admin Dashboard
               </Link>
             )}
-
             {isPharmacist && (
               <Link
                 to="/pharmacist-dashboard"
-                className="text-gray-700 hover:text-teal-600 px-3 py-2 rounded-md text-md font-medium"
-                onClick={() => setMenuOpen(false)}
+                className="hover:text-teal-600 transition-colors"
               >
                 Pharmacist Dashboard
               </Link>
             )}
           </div>
 
+          {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button
               onClick={toggleMenu}
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
-              aria-controls="mobile-menu"
-              aria-expanded={menuOpen}
+              className="p-2 rounded-md text-gray-700 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
             >
-              <span className="sr-only">Open main menu</span>
               {!menuOpen ? (
                 <svg
-                  className="block h-6 w-6"
+                  className="h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -181,12 +146,11 @@ const SecondNavbar = () => {
                 </svg>
               ) : (
                 <svg
-                  className="block h-6 w-6"
+                  className="h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -201,13 +165,14 @@ const SecondNavbar = () => {
         </div>
       </div>
 
+      {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 shadow-md">
+        <div className="lg:hidden bg-white border-t border-gray-200 shadow-md animate-slide-down">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
               to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-teal-100"
-              onClick={() => setMenuOpen(false)}
+              className="block px-3 py-2 text-gray-700 hover:bg-teal-100 rounded"
+              onClick={closeMenu}
             >
               Home
             </Link>
@@ -222,7 +187,7 @@ const SecondNavbar = () => {
                   const val = e.target.value;
                   if (val) {
                     navigate(`/medicines/${val}`);
-                    setMenuOpen(false);
+                    closeMenu();
                   }
                 }}
                 defaultValue=""
@@ -245,7 +210,7 @@ const SecondNavbar = () => {
                   const val = e.target.value;
                   if (val) {
                     navigate(`/equipments/${val}`);
-                    setMenuOpen(false);
+                    closeMenu();
                   }
                 }}
                 defaultValue=""
@@ -260,8 +225,8 @@ const SecondNavbar = () => {
 
             <Link
               to="/products/all-products"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-teal-100"
-              onClick={() => setMenuOpen(false)}
+              className="block px-3 py-2 hover:bg-teal-100 rounded"
+              onClick={closeMenu}
             >
               All Medicine
             </Link>
@@ -269,18 +234,17 @@ const SecondNavbar = () => {
             {isAdmin && (
               <Link
                 to="/admin-dashboard"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-teal-100"
-                onClick={() => setMenuOpen(false)}
+                className="block px-3 py-2 hover:bg-teal-100 rounded"
+                onClick={closeMenu}
               >
                 Admin Dashboard
               </Link>
             )}
-
             {isPharmacist && (
               <Link
                 to="/pharmacist-dashboard"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-teal-100"
-                onClick={() => setMenuOpen(false)}
+                className="block px-3 py-2 hover:bg-teal-100 rounded"
+                onClick={closeMenu}
               >
                 Pharmacist Dashboard
               </Link>

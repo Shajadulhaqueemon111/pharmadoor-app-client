@@ -102,7 +102,7 @@ const SeclodetailsPage = () => {
 
           <button
             onClick={handleAddToCart}
-            className="btn bg-[#0E7673] text-white w-full"
+            className="btn bg-blue-500 hover:bg-blue-700 text-white w-full"
           >
             Add-To-Cart
           </button>

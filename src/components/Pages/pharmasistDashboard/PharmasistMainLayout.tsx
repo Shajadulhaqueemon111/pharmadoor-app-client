@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import PharmacistSidebar from "./PharmacistSidebar";
-import PharmacistNavbar from "./PharmacistNavbar"; // Make sure the path is correct
+import PharmacistNavbar from "./PharmacistNavbar";
 import { Toaster } from "react-hot-toast";
 
 const PharmasistMainLayout = () => {

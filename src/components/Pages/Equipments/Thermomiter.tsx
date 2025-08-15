@@ -48,35 +48,43 @@ const ThermomiterPage = () => {
   return (
     <div>
       <div className="px-4 py-8 bg-gray-50 min-h-screen">
-        <h1 className="text-3xl font-bold text-center text-blue-600 mb-8">
+        <h1 className="text-2xl font-bold text-center text-blue-600 mb-8">
           Thermomiter Equipments
         </h1>
         <div
-          data-aos="fade-up"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          data-aos="zoom-out-left"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {medicalProducts.map((equipment) => (
             <div
               key={equipment._id}
-              className="bg-white border rounded-xl shadow-md hover:shadow-lg transition duration-200 overflow-hidden"
+              className="group bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 min-h-[320px] flex flex-col"
             >
-              <img
-                src={equipment.medicineImage}
-                alt={equipment.name}
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-3 space-y-1">
-                <h2 className="text-lg font-semibold text-gray-800">
-                  {equipment.name}
-                </h2>
-                <p className="text-sm text-gray-600">
-                  <strong>Generic:</strong> {equipment.brand}
-                </p>
-                <p className="text-base font-bold text-green-600">
-                  {equipment.price} Tk
-                </p>
+              {/* Image with zoom effect */}
+              <div className="overflow-hidden">
+                <img
+                  src={equipment.medicineImage}
+                  alt={equipment.name}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+
+              {/* Card content */}
+              <div className="p-4 flex flex-col flex-grow">
+                <div className="space-y-2 flex-grow">
+                  <h2 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition">
+                    {equipment.name}
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    <strong>Generic:</strong> {equipment.brand}
+                  </p>
+                  <p className="text-lg font-bold text-green-600">
+                    {equipment.price} Tk
+                  </p>
+                </div>
+
                 <Link to={`/equipments/${equipment._id}`}>
-                  <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-md">
+                  <button className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2.5 rounded-md transition-colors duration-300">
                     View Details
                   </button>
                 </Link>

@@ -77,11 +77,11 @@ const OfferSection = () => {
     <div>
       <section className="bg-gray-50 py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl font-bold text-center  mb-10">
+          <h2 className="text-3xl font-bold text-center text-blue-700 mb-12">
             Special Offers
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {currentItems.map((product) => {
               const offerPrice =
                 parseFloat(product.price) -
@@ -90,53 +90,73 @@ const OfferSection = () => {
               return (
                 <div
                   key={product._id}
-                  className="relative bg-white rounded-xl shadow hover:shadow-lg transition p-4"
+                  className="relative bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col"
                 >
-                  <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                  {/* Discount Badge */}
+                  <div className="absolute top-4 right-4 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg z-10 select-none">
                     {product.offerPercent}% OFF
                   </div>
 
-                  <img
-                    src={product.medicineImage}
-                    alt={product.name}
-                    className="w-full h-40 object-cover rounded-md mb-4"
-                  />
-
-                  <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                    {product.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-2">
-                    Brand: {product.brand} | {product.form} | {product.dosage}
-                  </p>
-                  <p className="text-sm text-gray-600 mb-1">
-                    Stock: {product.stock_quantity}
-                  </p>
-
-                  <div className="mb-4">
-                    <span className="text-lg font-bold text-primary">
-                      ৳{offerPrice.toFixed(2)}
-                    </span>{" "}
-                    <span className="text-sm line-through text-gray-400 ml-2">
-                      ৳{parseFloat(product.price).toFixed(2)}
-                    </span>
+                  {/* Image */}
+                  <div className="overflow-hidden rounded-t-2xl">
+                    <img
+                      src={product.medicineImage}
+                      alt={product.name}
+                      className="w-full h-36 object-cover transition-transform duration-300 hover:scale-105"
+                    />
                   </div>
 
-                  <a
-                    href={`/medicines/specialoffer/${product._id}`}
-                    className="inline-block text-sm bg-blue-600 text-white  px-4 py-2 rounded hover:bg-primary-dark transition"
-                  >
-                    View Details
-                  </a>
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-1 truncate">
+                      Brand: {product.brand} | {product.form} | {product.dosage}
+                    </p>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Stock:{" "}
+                      <span
+                        className={
+                          product.stock_quantity > 0
+                            ? "text-green-600 font-semibold"
+                            : "text-red-600 font-semibold"
+                        }
+                      >
+                        {product.stock_quantity > 0
+                          ? product.stock_quantity
+                          : "Out of Stock"}
+                      </span>
+                    </p>
+
+                    <div className="mt-auto flex items-center gap-3">
+                      <span className="text-xl font-bold text-green-700">
+                        ৳{offerPrice.toFixed(2)}
+                      </span>
+                      <span className="text-sm line-through text-gray-400">
+                        ৳{parseFloat(product.price).toFixed(2)}
+                      </span>
+                    </div>
+
+                    <a
+                      href={`/medicines/specialoffer/${product._id}`}
+                      className="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white text-center font-semibold py-2 rounded-xl shadow-md transition"
+                    >
+                      View Details
+                    </a>
+                  </div>
                 </div>
               );
             })}
           </div>
         </div>
-        <div className="flex justify-center items-center mt-10 space-x-2">
+
+        {/* Pagination */}
+        <div className="flex justify-center items-center mt-12 space-x-3">
           <button
             onClick={() => gotToPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-primary text-white rounded disabled:opacity-50"
+            className="px-5 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 transition"
           >
             Prev
           </button>
@@ -147,10 +167,10 @@ const OfferSection = () => {
               <button
                 key={page}
                 onClick={() => gotToPage(page)}
-                className={`px-4 py-2 rounded ${
+                className={`px-5 py-2 rounded-lg font-semibold transition ${
                   currentPage === page
-                    ? "bg-primary text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
+                    ? "bg-blue-700 text-white"
+                    : "bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white"
                 }`}
               >
                 {page}
@@ -161,7 +181,7 @@ const OfferSection = () => {
           <button
             onClick={() => gotToPage(currentPage + 1)}
             disabled={currentPage === totalPage}
-            className="px-4 py-2 bg-primary text-white rounded disabled:opacity-50"
+            className="px-5 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 transition"
           >
             Next
           </button>

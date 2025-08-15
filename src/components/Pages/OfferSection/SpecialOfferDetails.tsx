@@ -154,7 +154,7 @@ const SpecialOfferDetails = () => {
 
           <button
             onClick={handleAddToCart}
-            className="btn bg-[#0E7673] hover:bg-[#095c5a] text-white w-full transition"
+            className="btn bg-blue-500 hover:bg-blue-700 text-white w-full transition"
           >
             Add-To-Cart
           </button>

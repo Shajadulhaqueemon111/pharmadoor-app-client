@@ -8,6 +8,8 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  CartesianGrid,
+  LabelList,
 } from "recharts";
 import { useAuth } from "../privateRoute/AuthContext";
 import toast from "react-hot-toast";
@@ -32,6 +34,20 @@ const monthOrder = [
   "Dec",
 ];
 
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
+        <p className="text-gray-700 font-semibold">{label} Sales</p>
+        <p className="text-indigo-600 font-bold text-lg">
+          Tk {payload[0].value.toFixed(2)}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
 const PharmasistsDashboard = () => {
   const [totalSales, setTotalSales] = useState<number>(0);
   const [totalProfit, setTotalProfit] = useState<number>(0);
@@ -43,28 +59,6 @@ const PharmasistsDashboard = () => {
 
   const { user } = useAuth();
   const userId = user?._id;
-
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const token = localStorage.getItem("accessToken");
-  //       const response = await axios.get(
-  //         "https://pharma-door-frontend.vercel.app/api/v1/users",
-  //         {
-  //           headers: {
-  //             Authorization: `${token}`,
-  //           },
-  //         }
-  //       );
-  //       const users = response.data?.data || [];
-  //       setTotalUsers(users.length);
-  //     } catch (error) {
-  //       console.error("Failed to fetch users", error);
-  //     }
-  //   };
-
-  //   fetchUsers();
-  // }, []);
 
   useEffect(() => {
     const fetchOrderedMedicines = async () => {
@@ -156,10 +150,11 @@ const PharmasistsDashboard = () => {
 
         {chartData.length > 0 ? (
           <>
-            <ResponsiveContainer width="100%" height={320}>
+            <ResponsiveContainer width="100%" height={350}>
               <BarChart
                 data={chartData}
-                margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
+                margin={{ top: 30, right: 30, left: 20, bottom: 20 }}
+                barGap={6}
                 onClick={(data: any) => {
                   if (data?.activeLabel && data?.activePayload?.length > 0) {
                     const clickedMonth = data.activeLabel;
@@ -172,33 +167,50 @@ const PharmasistsDashboard = () => {
                 }}
               >
                 <defs>
-                  <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#ec4899" stopOpacity={0.9} />
-                    <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.6} />
+                  <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#6366F1" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#4F46E5" stopOpacity={0.4} />
                   </linearGradient>
                 </defs>
 
+                <CartesianGrid strokeDasharray="3 3" stroke="#e0e7ff" />
+
                 <XAxis
                   dataKey="name"
-                  stroke="#94a3b8"
-                  tick={{ fontSize: 12, fontWeight: 600 }}
+                  stroke="#4b5563"
+                  tick={{ fontSize: 14, fontWeight: "600", fill: "#374151" }}
+                  axisLine={{ stroke: "#4b5563" }}
+                  tickLine={false}
                 />
                 <YAxis
-                  stroke="#94a3b8"
-                  tickFormatter={(value) => `$${value}`}
-                  tick={{ fontSize: 12 }}
+                  stroke="#4b5563"
+                  tick={{ fontSize: 12, fill: "#374151" }}
+                  axisLine={{ stroke: "#4b5563" }}
+                  tickLine={false}
+                  tickFormatter={(value) => `Tk${value}`}
                 />
-                <Tooltip
-                  contentStyle={{ backgroundColor: "#f3f4f6", borderRadius: 8 }}
-                  formatter={(value: any) => [`$${value}`, "Sales"]}
-                />
+                <Tooltip content={<CustomTooltip />} />
+
                 <Bar
                   dataKey="sales"
-                  fill="url(#barGradient)"
-                  radius={[10, 10, 0, 0]}
-                  barSize={40}
-                  animationDuration={800}
-                />
+                  fill="url(#colorSales)"
+                  radius={[10, 10, 10, 10]}
+                  barSize={45}
+                  animationDuration={900}
+                  animationEasing="ease-in-out"
+                  cursor="pointer"
+                >
+                  <LabelList
+                    dataKey="sales"
+                    position="top"
+                    formatter={(value: number) => `Tk${value.toFixed(0)}`}
+                    style={{
+                      fill: "#4338ca",
+                      fontWeight: "700",
+                      fontSize: 14,
+                    }}
+                  />
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
 

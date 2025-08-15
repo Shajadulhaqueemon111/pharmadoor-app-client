@@ -63,6 +63,10 @@ import CreateOfferProduct from "../Pages/pharmasistDashboard/CreateOfferProduct/
 import AllOfferProducts from "../Pages/pharmasistDashboard/CreateOfferProduct/AllOfferProducts";
 import UpdateOfferPage from "../Pages/pharmasistDashboard/CreateOfferProduct/UpdateOfferPage";
 import BlogPostForm from "../Pages/pharmasistDashboard/Blog/CreateBlog";
+import AnimalMedicineDetails from "../Pages/AnimalMedicine/AnimalDetails";
+import AllAnimalMedicinePage from "../Pages/pharmasistDashboard/AnimalMedicine/AllAnimalMedicine";
+import CreateAnimalMedicine from "../Pages/pharmasistDashboard/AnimalMedicine/CreateAnimalMedicine";
+import UpdateAnimalMedicine from "../Pages/pharmasistDashboard/AnimalMedicine/UpdateAnimalMedicine";
 
 const router = createBrowserRouter([
   {
@@ -158,12 +162,12 @@ const router = createBrowserRouter([
         element: <AllProductDetails />,
       },
       {
+        path: "/animal-medicine/:_id",
+        element: <AnimalMedicineDetails />,
+      },
+      {
         path: "/equipments/stethoscope",
-        element: (
-          <ProtectedRoute>
-            <StethoscopePage />
-          </ProtectedRoute>
-        ),
+        element: <StethoscopePage />,
       },
       {
         path: "/equipments/:_id",
@@ -325,6 +329,18 @@ const router = createBrowserRouter([
       {
         path: "create-blog",
         element: <BlogPostForm />,
+      },
+      {
+        path: "All-animal-medicine",
+        element: <AllAnimalMedicinePage />,
+      },
+      {
+        path: "create-animal-medicine",
+        element: <CreateAnimalMedicine />,
+      },
+      {
+        path: "update-animal-medicine/:_id",
+        element: <UpdateAnimalMedicine />,
       },
     ],
   },

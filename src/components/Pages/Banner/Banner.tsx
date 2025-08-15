@@ -26,34 +26,24 @@ const BannerPage = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="rounded-xl shadow-lg"
       >
-        <SwiperSlide>
-          <img
-            src={medicalImage}
-            alt="medical delivery"
-            className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover rounded-xl"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={logo2}
-            alt="medicine delivery"
-            className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover rounded-xl"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={logo3}
-            alt="pharmacy"
-            className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover rounded-xl"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src={logo4}
-            alt="pharmacy"
-            className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover rounded-xl"
-          />
-        </SwiperSlide>
+        {[medicalImage, logo2, logo3, logo4].map((img, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] rounded-xl overflow-hidden">
+              <img
+                src={img}
+                alt={`banner-${index}`}
+                className="w-full h-full object-cover"
+              />
+              {/* Optional gradient overlay for better text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              {/* Example text */}
+              {/* <div className="absolute bottom-6 left-6 text-white">
+                <h2 className="text-2xl sm:text-4xl font-bold">Your Banner Title</h2>
+                <p className="text-sm sm:text-lg">Your description here...</p>
+              </div> */}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

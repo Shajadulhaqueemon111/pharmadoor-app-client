@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Blog {
   _id: string;
@@ -64,8 +65,8 @@ const BlogPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="text-xl font-bold text-center mb-12">
+    <div className="max-w-7xl mx-auto px-6 py-12 bg-gray-50 rounded-xl shadow-md">
+      <h1 className="text-xl font-bold text-center text-black mb-12">
         Latest Articles from Our Blog
       </h1>
 
@@ -75,7 +76,7 @@ const BlogPage = () => {
             key={blog._id}
             className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col"
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden rounded-t-2xl">
               <img
                 src={blog.thumbnail}
                 alt={blog.title}
@@ -83,12 +84,12 @@ const BlogPage = () => {
               />
             </div>
 
-            <div className="p-5 flex flex-col flex-grow">
-              <h2 className="text-xl font-semibold text-gray-800 group-hover:text-indigo-600 transition line-clamp-2">
+            <div className="p-6 flex flex-col flex-grow">
+              <h2 className="text-xl font-semibold text-gray-900 group-hover:text-indigo-600 transition line-clamp-2">
                 {blog.title}
               </h2>
 
-              <p className="text-gray-600 text-sm mt-2 line-clamp-3">
+              <p className="text-gray-600 text-sm mt-3 line-clamp-3 flex-grow">
                 {blog.excerpt}
               </p>
 
@@ -100,12 +101,12 @@ const BlogPage = () => {
                     day: "numeric",
                   })}
                 </time>
-                <a
-                  href={`/blog/${blog._id}`}
-                  className="text-indigo-600 hover:text-indigo-800 font-medium transition"
+                <Link
+                  to={`/blog/${blog._id}`}
+                  className="text-indigo-600 hover:text-indigo-800 font-semibold transition"
                 >
                   Read More →
-                </a>
+                </Link>
               </div>
             </div>
           </article>
@@ -113,9 +114,9 @@ const BlogPage = () => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-center mt-10 gap-2">
+      <div className="flex justify-center mt-12 gap-3">
         <button
-          className="px-3 py-1 border rounded hover:bg-indigo-100"
+          className="px-4 py-2 border rounded-lg text-gray-600 hover:bg-indigo-100 disabled:opacity-50 transition"
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
@@ -128,10 +129,10 @@ const BlogPage = () => {
             <button
               key={page}
               onClick={() => handlePageChange(page)}
-              className={`px-3 py-1 rounded border ${
+              className={`px-4 py-2 rounded-lg font-semibold border transition ${
                 currentPage === page
                   ? "bg-indigo-600 text-white"
-                  : "hover:bg-indigo-100"
+                  : "text-gray-700 hover:bg-indigo-100"
               }`}
             >
               {page}
@@ -140,7 +141,7 @@ const BlogPage = () => {
         })}
 
         <button
-          className="px-3 py-1 border rounded hover:bg-indigo-100"
+          className="px-4 py-2 border rounded-lg text-gray-600 hover:bg-indigo-100 disabled:opacity-50 transition"
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
